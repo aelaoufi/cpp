@@ -7,70 +7,42 @@ static int j = 0;
 
 class Contact
 {
-	public :
 	std::string		first_name, last_name, nickname, darkest_secret, phone_number;
+
+	public :
+		void	SetContactFirstName(std::string &first_n) { first_name = first_n;}
+		std::string	GetContactFirstName() { return (first_name); }
+
+		void	SetContactLastName(std::string &last_n) {last_name = last_n; }
+		std::string	GetContactLastName() { return (last_name); }
+
+		void	SetContactNickname(std::string &nick_n) {nickname = nick_n; }
+		std::string	GetContactNickname() { return (nickname); }
+
+		void	SetContactDarkestSecret(std::string &darkest_s) {darkest_secret = darkest_s; }
+		std::string	GetContactDarkestSecret() { return (darkest_secret); }
+
+		void	SetContactPhoneNumber(std::string &phone_n) {phone_number = phone_n; }
+		std::string	GetContactPhoneNumber() { return (phone_number); }
 };
 
 class PhoneBook
 {
-	Contact  *contacts;
+	Contact  contacts[7];
 
 	public :
-		PhoneBook()
-		{
-			contacts = new Contact[7]; 
-		}
-		void add(std::string first_n, std::string last_n, std::string nick_n, std::string darkest_s, std::string phone_n)
-		{
-			if (first_n.empty() || last_n.empty() || nick_n.empty() || darkest_s.empty() || phone_n.empty())
-			{
-				std::cout << "FIELDS CAN'T BE EMPTY\n";
-				return ;
-			}
-			contacts[j].first_name = first_n;
-			contacts[j].last_name = last_n;
-			contacts[j].nickname = nick_n;
-			contacts[j].darkest_secret = darkest_s;
-			contacts[j].phone_number = phone_n;
-			j++;
-			if (j == 8)
-				j = 0;
-		}
-		void search(void)
-		{
-			char	contact_id[5];
+		void	SetFirstName(std::string &first_n) {contacts[j].SetContactFirstName(first_n); }
+		std::string	GetFirstName(int id) {return (contacts[id - 1].GetContactFirstName()); }
 
-			std::cout << "Enter the contact ID (1 to 8): ";
-			std::cin >> contact_id;
-			std::cin.ignore(1, '\n');
-			while (isdigit(contact_id[0]) == 0 || (atoi(contact_id) > 8 || atoi(contact_id) < 0) || atoi(contact_id) > j)
-			{
-				std::cout << "Invalid ID or Contact Non Existant, Try Again : ";
-				std::cin >> contact_id;
-				std::cin.ignore(1, '\n');
-			}
-			print_searched(contact_id);
-		}
+		void	SetLastName(std::string &last_n) {contacts[j].SetContactLastName(last_n); }
+		std::string	GetLastName(int id) { return (contacts[id - 1].GetContactLastName()); }
 
-		void print_searched(char *contact_id)
-		{
-			std::cout << contact_id << " | ";
-			if (contacts[atoi(contact_id) - 1].first_name.length() > 10)
-				std::cout << contacts[atoi(contact_id) - 1].first_name.substr(0, 9) << '.'; 
-			else
-				std::cout << contacts[atoi(contact_id) - 1].first_name;
-			std::cout << " | ";
-			if (contacts[atoi(contact_id) - 1].last_name.length() > 10)
-				std::cout << contacts[atoi(contact_id) - 1].last_name.substr(0, 9) << '.'; 
-			else
-				std::cout << contacts[atoi(contact_id) - 1].last_name;
-			std::cout << " | ";
-			if (contacts[atoi(contact_id) - 1].nickname.length() > 10)
-				std::cout << contacts[atoi(contact_id) - 1].nickname.substr(0, 9) << '.'; 
-			else
-				std::cout << contacts[atoi(contact_id) - 1].nickname;
-			std::cout << '\n';
-		}
+		void	SetNickname(std::string &nick_n) {contacts[j].SetContactNickname(nick_n); }
+		std::string	GetNickname(int id) { return (contacts[id - 1].GetContactNickname()); }
+
+		void	SetDarkestSecret(std::string &darkest_s) {contacts[j].SetContactDarkestSecret(darkest_s); }
+
+		void	SetPhoneNumber(std::string &phone_n) {contacts[j].SetContactPhoneNumber(phone_n); }
 };
 
 
