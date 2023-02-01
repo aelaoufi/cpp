@@ -59,13 +59,18 @@ void search(PhoneBook phonebook)
 	print_searched(contact_id, phonebook);
 }
 
-void add(PhoneBook &phonebook, std::string first_n, std::string last_n, std::string nick_n, std::string darkest_s, std::string phone_n)
+int	check_if_empty(std::string str)
 {
-	if (first_n.empty() || last_n.empty() || nick_n.empty() || darkest_s.empty() || phone_n.empty())
+	if (str.empty())
 	{
 		std::cout << "FIELDS CAN'T BE EMPTY\n";
-		return ;
+		return (-1);
 	}
+	return (1);
+}
+
+void add(PhoneBook &phonebook, std::string first_n, std::string last_n, std::string nick_n, std::string darkest_s, std::string phone_n)
+{
 	phonebook.SetFirstName(first_n);
 	phonebook.SetLastName(last_n);
 	phonebook.SetNickname(nick_n);
@@ -86,14 +91,19 @@ void	add_contact(PhoneBook &phonebook)
 
 	std::cout << "First Name : ";
 	std::getline(std::cin, f_name);
+	if (check_if_empty(f_name) == -1) {return ;}
 	std::cout << "Last Name : ";
 	std::getline(std::cin, l_name);
+	if (check_if_empty(l_name) == -1) {return ;}
 	std::cout << "Nickname : ";
 	std::getline(std::cin, nickname);
+	if (check_if_empty(nickname) == -1) {return ;}
 	std::cout << "Darkest Secret : ";
 	std::getline(std::cin, secret);
+	if (check_if_empty(secret) == -1) {return ;}
 	std::cout << "Phone Number: ";
 	std::getline(std::cin, phone_num);
+	if (check_if_empty(phone_num) == -1) {return ;}
 	add(phonebook, f_name, l_name, nickname, secret, phone_num);
 }
 
@@ -106,6 +116,9 @@ int main ()
 	{
 		std::cout << "Enter your action : ";
 		std::getline(std::cin, prompt);
+		if (std::cin.eof())
+			return (0);
+		check_if_empty(prompt);
 		if (prompt.compare("ADD") == 0)
 		{
 			add_contact(phonebook);
