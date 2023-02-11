@@ -6,7 +6,7 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 
 CC = g++
 
-ALL = $(NAME)
+ALL : $(NAME)
 
 $(NAME) : $(SRCS)
 	$(CC) -o $(NAME) $(FLAGS) $(SRCS) 

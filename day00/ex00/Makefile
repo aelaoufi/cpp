@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = megaphone.cpp
 
-ALL = $(NAME)
+ALL : $(NAME)
 
 $(NAME) : $(SRCS)
 	$(CC) -o $(NAME) $(CFLAGS) $(SRCS)
