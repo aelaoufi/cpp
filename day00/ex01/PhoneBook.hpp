@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+
 static int j = 0;
 
 class Contact
