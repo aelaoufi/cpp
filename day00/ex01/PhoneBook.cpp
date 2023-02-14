@@ -43,14 +43,16 @@ void search(PhoneBook phonebook)
 {
 	char	contact_id[5];
 
-	for (int i = 1; i < j + 1; i++)
+	for (int i = 1; i <= 8; i++)
 	{
+		if (phonebook.GetFirstName(i).empty())
+			break ;
 		print_all(phonebook, i);
 	}
 	std::cout << "Enter the contact ID (1 to 8): ";
 	std::cin >> contact_id;
 	std::cin.ignore(1, '\n');
-	while (isdigit(contact_id[0]) == 0 || (atoi(contact_id) > 8 || atoi(contact_id) < 1) || atoi(contact_id) > j)
+	while (isdigit(contact_id[0]) == 0 || (atoi(contact_id) > 8 || atoi(contact_id) < 1) || atoi(contact_id) > track_j)
 	{
 		std::cout << "Invalid ID or Contact Non Existant, Try Again : ";
 		std::cin >> contact_id;
@@ -77,8 +79,12 @@ void add(PhoneBook &phonebook, std::string first_n, std::string last_n, std::str
 	phonebook.SetDarkestSecret(darkest_s);
 	phonebook.SetPhoneNumber(phone_n);
 	j++;
+	track_j++;
 	if (j == 8)
+	{
 		j = 0;
+		track_j = 7;
+	}
 }
 
 void	add_contact(PhoneBook &phonebook)

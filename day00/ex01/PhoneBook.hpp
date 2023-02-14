@@ -5,6 +5,7 @@
 
 
 static int j = 0;
+static int track_j = 0;
 
 class Contact
 {
@@ -42,8 +43,10 @@ class PhoneBook
 		std::string	GetNickname(int id) { return (contacts[id - 1].GetContactNickname()); }
 
 		void	SetDarkestSecret(std::string &darkest_s) {contacts[j].SetContactDarkestSecret(darkest_s); }
+		std::string	GetDarkestSecret(int id) { return (contacts[id - 1].GetContactDarkestSecret()); }
 
 		void	SetPhoneNumber(std::string &phone_n) {contacts[j].SetContactPhoneNumber(phone_n); }
+		std::string	GetPhoneNumber(int id) { return (contacts[id - 1].GetContactPhoneNumber()); }
 };
 
 
