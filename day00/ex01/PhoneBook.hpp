@@ -30,7 +30,7 @@ class Contact
 
 class PhoneBook
 {
-	Contact  contacts[7];
+	Contact  contacts[8];
 
 	public :
 		void	SetFirstName(std::string &first_n) {contacts[j].SetContactFirstName(first_n); }

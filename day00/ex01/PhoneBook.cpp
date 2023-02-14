@@ -43,7 +43,7 @@ void search(PhoneBook phonebook)
 {
 	char	contact_id[5];
 
-	for (int i = 1; i <= 8; i++)
+	for (int i = 1; i <= track_j; i++)
 	{
 		if (phonebook.GetFirstName(i).empty())
 			break ;
@@ -81,10 +81,9 @@ void add(PhoneBook &phonebook, std::string first_n, std::string last_n, std::str
 	j++;
 	track_j++;
 	if (j == 8)
-	{
 		j = 0;
-		track_j = 7;
-	}
+	if (track_j > 8)
+		track_j = 8;
 }
 
 void	add_contact(PhoneBook &phonebook)
