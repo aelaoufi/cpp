@@ -17,6 +17,16 @@ void	print_all(PhoneBook phonebook, int id)
 		std::cout << phonebook.GetNickname(id).substr(0, 9) << '.'; 
 	else
 		std::cout << phonebook.GetNickname(id);
+	std::cout << " | ";
+	if (phonebook.GetDarkestSecret(id).length() > 10)
+		std::cout << phonebook.GetDarkestSecret(id).substr(0, 9) << '.'; 
+	else
+		std::cout << phonebook.GetDarkestSecret(id);
+	std::cout << " | ";
+	if (phonebook.GetPhoneNumber(id).length() > 10)
+		std::cout << phonebook.GetPhoneNumber(id).substr(0, 9) << '.'; 
+	else
+		std::cout << phonebook.GetPhoneNumber(id);
 	std::cout << '\n';
 }
 void	print_searched(char *contact_id, PhoneBook phonebook)
@@ -64,10 +74,7 @@ void search(PhoneBook phonebook)
 int	check_if_empty(std::string str)
 {
 	if (str.empty())
-	{
-		std::cout << "FIELDS CAN'T BE EMPTY\n";
 		return (-1);
-	}
 	return (1);
 }
 
@@ -94,21 +101,51 @@ void	add_contact(PhoneBook &phonebook)
 	std::string	secret;
 	std::string	phone_num;
 
-	std::cout << "First Name : ";
-	std::getline(std::cin, f_name);
-	if (check_if_empty(f_name) == -1) {return ;}
-	std::cout << "Last Name : ";
-	std::getline(std::cin, l_name);
-	if (check_if_empty(l_name) == -1) {return ;}
-	std::cout << "Nickname : ";
-	std::getline(std::cin, nickname);
-	if (check_if_empty(nickname) == -1) {return ;}
-	std::cout << "Darkest Secret : ";
-	std::getline(std::cin, secret);
-	if (check_if_empty(secret) == -1) {return ;}
-	std::cout << "Phone Number: ";
-	std::getline(std::cin, phone_num);
-	if (check_if_empty(phone_num) == -1) {return ;}
+	while (1)
+	{
+		std::cout << "First Name : ";
+		std::getline(std::cin, f_name);
+		if (check_if_empty(f_name) == -1)
+			std::cout << "FIELD CAN'T BE EMPTY\n";
+		else
+			break ;
+	}
+	while (1)
+	{
+		std::cout << "Last Name : ";
+		std::getline(std::cin, l_name);
+		if (check_if_empty(l_name) == -1)
+		std::cout << "FIELD CAN'T BE EMPTY\n";
+		else
+			break ;
+	}
+	while (1)
+	{
+		std::cout << "Nickname : ";
+		std::getline(std::cin, nickname);
+		if (check_if_empty(nickname) == -1)
+			std::cout << "FIELD CAN'T BE EMPTY\n";
+		else
+			break ;
+	}
+	while (1)
+	{
+		std::cout << "Darkest Secret : ";
+		std::getline(std::cin, secret);
+		if (check_if_empty(secret) == -1)
+			std::cout << "FIELD CAN'T BE EMPTY\n";
+		else
+			break ;
+	}
+	while (1)
+	{
+		std::cout << "Phone Number: ";
+		std::getline(std::cin, phone_num);
+		if (check_if_empty(phone_num) == -1)
+			std::cout << "FIELD CAN'T BE EMPTY\n";
+		else
+			break ;
+	}
 	add(phonebook, f_name, l_name, nickname, secret, phone_num);
 }
 
