@@ -1,6 +1,8 @@
 NAME = PhoneBook
 
-SRCS = PhoneBook.cpp
+SRCS = 	PhoneBook.cpp \
+		Contact.cpp \
+		PhoneBook_Display.cpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
