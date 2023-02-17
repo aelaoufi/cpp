@@ -6,12 +6,13 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:36:36 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/17 15:44:12 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:44:26 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
+
+static int j = 0;
 
 void	print_all(PhoneBook phonebook, int id)
 {
@@ -32,12 +33,12 @@ void	print_all(PhoneBook phonebook, int id)
 		std::cout << phonebook.GetNickname(id);
 	std::cout << " | ";
 	if (phonebook.GetDarkestSecret(id).length() > 10)
-		std::cout << phonebook.GetDarkestSecret(id).substr(0, 9) << '.'; 
+		std::cout << phonebook.GetDarkestSecret(id).substr(0, 9) << '.';
 	else
 		std::cout << phonebook.GetDarkestSecret(id);
 	std::cout << " | ";
 	if (phonebook.GetPhoneNumber(id).length() > 10)
-		std::cout << phonebook.GetPhoneNumber(id).substr(0, 9) << '.'; 
+		std::cout << phonebook.GetPhoneNumber(id).substr(0, 9) << '.';
 	else
 		std::cout << phonebook.GetPhoneNumber(id);
 	std::cout << '\n';
@@ -70,6 +71,7 @@ void search(PhoneBook phonebook)
 	{
 		if (phonebook.GetFirstName(i).empty())
 			break ;
+		//printf("zab\n");
 		print_all(phonebook, i);
 	}
 	std::cout << "Enter the contact ID (1 to 8): ";
@@ -78,8 +80,6 @@ void search(PhoneBook phonebook)
 	if (isdigit(contact_id[0]) == 0 || (atoi(contact_id) > 8 || atoi(contact_id) < 1) || atoi(contact_id) > track_j)
 	{
 		std::cout << "Invalid ID or Contact Non Existant.\n";
-		// std::cin >> contact_id;
-		// std::cin.ignore(1, '\n');
 		return ;
 	}
 	print_searched(contact_id, phonebook);
@@ -94,11 +94,12 @@ int	check_if_empty(std::string str)
 
 void add(PhoneBook &phonebook, std::string first_n, std::string last_n, std::string nick_n, std::string darkest_s, std::string phone_n)
 {
-	phonebook.SetFirstName(first_n);
-	phonebook.SetLastName(last_n);
-	phonebook.SetNickname(nick_n);
-	phonebook.SetDarkestSecret(darkest_s);
-	phonebook.SetPhoneNumber(phone_n);
+	printf("j = %d\n", j);
+	phonebook.SetFirstName(first_n, j);
+	phonebook.SetLastName(last_n, j);
+	phonebook.SetNickname(nick_n, j);
+	phonebook.SetDarkestSecret(darkest_s, j);
+	phonebook.SetPhoneNumber(phone_n, j);
 	j++;
 	track_j++;
 	if (j == 8)

@@ -2,6 +2,9 @@
 #define CONTACT_HPP
 #include <iostream>
 #include <string>
+#include "PhoneBook.hpp"
+
+static int track_j = 0;
 
 class Contact
 {

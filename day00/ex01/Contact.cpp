@@ -6,12 +6,11 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:37:53 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/16 18:37:56 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:39:16 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 void	Contact::SetContactFirstName(std::string &first_n) { first_name = first_n;}
 std::string	Contact::GetContactFirstName() { return (first_name); }
