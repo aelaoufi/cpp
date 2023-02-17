@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:36:36 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/17 17:44:26 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:47:29 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void search(PhoneBook phonebook)
 	{
 		if (phonebook.GetFirstName(i).empty())
 			break ;
-		//printf("zab\n");
 		print_all(phonebook, i);
 	}
 	std::cout << "Enter the contact ID (1 to 8): ";
@@ -94,7 +93,6 @@ int	check_if_empty(std::string str)
 
 void add(PhoneBook &phonebook, std::string first_n, std::string last_n, std::string nick_n, std::string darkest_s, std::string phone_n)
 {
-	printf("j = %d\n", j);
 	phonebook.SetFirstName(first_n, j);
 	phonebook.SetLastName(last_n, j);
 	phonebook.SetNickname(nick_n, j);
