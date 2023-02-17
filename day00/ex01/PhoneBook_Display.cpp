@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:36:36 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/16 18:38:18 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:44:12 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,12 @@ void search(PhoneBook phonebook)
 	std::cout << "Enter the contact ID (1 to 8): ";
 	std::cin >> contact_id;
 	std::cin.ignore(1, '\n');
-	while (isdigit(contact_id[0]) == 0 || (atoi(contact_id) > 8 || atoi(contact_id) < 1) || atoi(contact_id) > track_j)
+	if (isdigit(contact_id[0]) == 0 || (atoi(contact_id) > 8 || atoi(contact_id) < 1) || atoi(contact_id) > track_j)
 	{
-		std::cout << "Invalid ID or Contact Non Existant, Try Again : ";
-		std::cin >> contact_id;
-		std::cin.ignore(1, '\n');
+		std::cout << "Invalid ID or Contact Non Existant.\n";
+		// std::cin >> contact_id;
+		// std::cin.ignore(1, '\n');
+		return ;
 	}
 	print_searched(contact_id, phonebook);
 }
@@ -169,6 +170,7 @@ int main ()
 	
 	while (1)
 	{
+		std::cout << "\n   		{ PhoneBook }\n	     ADD, SEARCH OR EXIT\n";
 		std::cout << "Enter your action : ";
 		std::getline(std::cin, prompt);
 		if (std::cin.eof())

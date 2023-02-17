@@ -13,19 +13,19 @@ class PhoneBook
 	Contact  contacts[8];
 
 	public :
-		void	SetFirstName(std::string &first_n);
+		void		SetFirstName(std::string &first_n);
 		std::string	GetFirstName(int id);
 
-		void	SetLastName(std::string &last_n);
+		void		SetLastName(std::string &last_n);
 		std::string	GetLastName(int id);
 
-		void	SetNickname(std::string &nick_n);
+		void		SetNickname(std::string &nick_n);
 		std::string	GetNickname(int id);
 
-		void	SetDarkestSecret(std::string &darkest_s);
+		void		SetDarkestSecret(std::string &darkest_s);
 		std::string	GetDarkestSecret(int id);
 
-		void	SetPhoneNumber(std::string &phone_n);
+		void		SetPhoneNumber(std::string &phone_n);
 		std::string	GetPhoneNumber(int id);
 };
 
