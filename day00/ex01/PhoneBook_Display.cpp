@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:36:36 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/17 17:47:29 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/18 16:58:21 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,48 +18,49 @@ void	print_all(PhoneBook phonebook, int id)
 {
 	std::cout << id << " | ";
 	if (phonebook.GetFirstName(id).length() > 10)
-		std::cout << phonebook.GetFirstName(id).substr(0, 9) << '.'; 
+		std::cout << std::setw(10) << phonebook.GetFirstName(id).substr(0, 9) << '.'; 
 	else
-		std::cout << phonebook.GetFirstName(id);
+		std::cout << std::setw(10) << phonebook.GetFirstName(id);
 	std::cout << " | ";
 	if (phonebook.GetLastName(id).length() > 10)
-		std::cout << phonebook.GetLastName(id).substr(0, 9) << '.'; 
+		std::cout << std::setw(10) << phonebook.GetLastName(id).substr(0, 9) << '.'; 
 	else
-		std::cout << phonebook.GetLastName(id);
+		std::cout << std::setw(10) << phonebook.GetLastName(id);
 	std::cout << " | ";
 	if (phonebook.GetNickname(id).length() > 10)
-		std::cout << phonebook.GetNickname(id).substr(0, 9) << '.'; 
+		std::cout << std::setw(10) << phonebook.GetNickname(id).substr(0, 9) << '.'; 
 	else
-		std::cout << phonebook.GetNickname(id);
-	std::cout << " | ";
-	if (phonebook.GetDarkestSecret(id).length() > 10)
-		std::cout << phonebook.GetDarkestSecret(id).substr(0, 9) << '.';
-	else
-		std::cout << phonebook.GetDarkestSecret(id);
-	std::cout << " | ";
-	if (phonebook.GetPhoneNumber(id).length() > 10)
-		std::cout << phonebook.GetPhoneNumber(id).substr(0, 9) << '.';
-	else
-		std::cout << phonebook.GetPhoneNumber(id);
+		std::cout << std::setw(10) << phonebook.GetNickname(id);
 	std::cout << '\n';
 }
 void	print_searched(char *contact_id, PhoneBook phonebook)
 {
 	std::cout << contact_id << " | ";
 	if (phonebook.GetFirstName(atoi(contact_id)).length() > 10)
-		std::cout << phonebook.GetFirstName(atoi(contact_id)).substr(0, 9) << '.'; 
+		std::cout << std::setw(10) << phonebook.GetFirstName(atoi(contact_id)).substr(0, 9) << '.'; 
 	else
-		std::cout << phonebook.GetFirstName(atoi(contact_id));
+		std::cout << std::setw(10) << phonebook.GetFirstName(atoi(contact_id));
 	std::cout << " | ";
 	if (phonebook.GetLastName(atoi(contact_id)).length() > 10)
-		std::cout << phonebook.GetLastName(atoi(contact_id)).substr(0, 9) << '.'; 
+		std::cout << std::setw(10) << phonebook.GetLastName(atoi(contact_id)).substr(0, 9) << '.'; 
 	else
-		std::cout << phonebook.GetLastName(atoi(contact_id));
+		std::cout << std::setw(10) << phonebook.GetLastName(atoi(contact_id));
 	std::cout << " | ";
 	if (phonebook.GetNickname(atoi(contact_id)).length() > 10)
-		std::cout << phonebook.GetNickname(atoi(contact_id)).substr(0, 9) << '.'; 
+		std::cout << std::setw(10) << phonebook.GetNickname(atoi(contact_id)).substr(0, 9) << '.'; 
 	else
-		std::cout << phonebook.GetNickname(atoi(contact_id));
+		std::cout << std::setw(10) << phonebook.GetNickname(atoi(contact_id));
+	std::cout << " | ";
+	if (phonebook.GetDarkestSecret(atoi(contact_id)).length() > 10)
+		std::cout << std::setw(10) << phonebook.GetDarkestSecret(atoi(contact_id)).substr(0, 9) << '.'; 
+	else
+		std::cout << std::setw(10) << phonebook.GetDarkestSecret(atoi(contact_id));
+	std::cout << " | ";
+	if (phonebook.GetPhoneNumber(atoi(contact_id)).length() > 10)
+		std::cout << std::setw(10) << phonebook.GetPhoneNumber(atoi(contact_id)).substr(0, 9) << '.'; 
+	else
+		std::cout << std::setw(10) << phonebook.GetPhoneNumber(atoi(contact_id));
+
 	std::cout << '\n';
 }
 
@@ -162,11 +163,17 @@ void	add_contact(PhoneBook &phonebook)
 	add(phonebook, f_name, l_name, nickname, secret, phone_num);
 }
 
-int main ()
+int main (int ac, char **av)
 {
 	PhoneBook phonebook;
 	std::string	prompt;
 	
+	(void)av;
+	if (ac > 1)
+	{
+		std::cout << "Program takes no arguments.\n";
+		return (-1);
+	}
 	while (1)
 	{
 		std::cout << "\n   		{ PhoneBook }\n	     ADD, SEARCH OR EXIT\n";
@@ -175,15 +182,15 @@ int main ()
 		if (std::cin.eof())
 			return (0);
 		check_if_empty(prompt);
-		if (prompt.compare("ADD") == 0)
+		if (prompt.compare("ADD") == 0 || prompt.compare("add") == 0)
 		{
 			add_contact(phonebook);
 		}
-		if (prompt.compare("SEARCH") == 0)
+		if (prompt.compare("SEARCH") == 0 || prompt.compare("search") == 0)
 		{
 			search(phonebook);
 		}
-		if (prompt.compare("EXIT") == 0)
+		if (prompt.compare("EXIT") == 0 || prompt.compare("exit") == 0)
 		{
 			return (0);
 		}
