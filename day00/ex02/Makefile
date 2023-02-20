@@ -1,8 +1,7 @@
-NAME = PhoneBook
+NAME = Account
 
-SRCS = 	PhoneBook.cpp \
-		Contact.cpp \
-		PhoneBook_Display.cpp
+SRCS = 	Account.cpp \
+		tests.cpp \
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
