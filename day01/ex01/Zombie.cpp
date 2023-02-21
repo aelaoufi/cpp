@@ -5,17 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 02:06:58 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/02/20 19:16:21 by anass_elaou      ###   ########.fr       */
+/*   Created: 2023/02/20 18:45:37 by anass_elaou       #+#    #+#             */
+/*   Updated: 2023/02/20 19:59:41 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+Zombie::Zombie() {}
+
 Zombie::Zombie(std::string _name) { name = _name; }
 
-std::string Zombie::GetName(void) { return(name); }
+std::string Zombie::GetName(void) { return (Zombie::name); }
 
-Zombie::~Zombie(){ std::cout << GetName() << ": HAAAZ DIEEEEED\n";}
+void Zombie::announce(void) { std::cout << Zombie::GetName() << " : MMMmmmmmm BRAAAAAIIINZ\n"; }
 
-void Zombie::announce(void) {std::cout << GetName() <<": BraiiiiiiinnnzzzZ...\n";}
+Zombie::~Zombie() { std::cout << name << " IS DEAAAAD\n"; }
