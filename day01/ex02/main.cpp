@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 00:15:46 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/02/21 13:08:32 by aelaoufi         ###   ########.fr       */
+/*   Created: 2023/02/21 15:28:19 by aelaoufi          #+#    #+#             */
+/*   Updated: 2023/02/21 16:27:25 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-Zombie  *newZombie(std::string name)
+int main()
 {
-    Zombie *newzombie = new Zombie(name);
-    return (newzombie);
+	std::string Zombie;
+	std::string *stringPTR;
+	std::string &stringREF = Zombie;
+
+	Zombie = "HI THIS IS BRAIN";
+	stringPTR = &Zombie;
+	std::cout << "string adress is :" << &Zombie << "\n";
+	std::cout << "PTR adress is :" << stringPTR << "\n";
+	std::cout << "REF adress is :" << &stringREF << "\n";
+	return (0);
 }

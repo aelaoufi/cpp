@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 00:15:46 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/02/21 13:08:32 by aelaoufi         ###   ########.fr       */
+/*   Created: 2023/02/21 16:39:42 by aelaoufi          #+#    #+#             */
+/*   Updated: 2023/02/21 16:43:28 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-Zombie  *newZombie(std::string name)
+int main()
 {
-    Zombie *newzombie = new Zombie(name);
-    return (newzombie);
+	
+	return (0);
 }
