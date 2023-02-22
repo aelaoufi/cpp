@@ -6,7 +6,7 @@
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:20:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/22 21:28:03 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/02/22 21:30:49 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void    change_occurrence(std::string line, char *to_change, char *to_what, char
 	{
 		line.insert(pos, to_what);
 		pos += word_len;
-		pos = line.find(to_change, pos);
+		pos = line.find(to_change, pos); // find a way to not messup the string to change if it shorter or longer
 	}
 	outfile << line << "\n";
 }
