@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:18:46 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/22 18:19:49 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:13:43 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replace.hpp"
 
+int main(int ac, char **av)
+{
+    Replace_word(av[1], av[2], av[3]);
+    return (0);
+}
