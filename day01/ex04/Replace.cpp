@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:20:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/22 21:30:49 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/02/23 13:43:40 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char    *AappendChar(char *filename)
 
 void    change_occurrence(std::string line, char *to_change, char *to_what, char *filename)
 {
-	std::fstream outfile(AappendChar(filename), std::ios_base::app);
+    char *replace = AappendChar(filename);
+	std::fstream outfile(replace, std::ios_base::app);
 	int pos = line.find(to_change, 0);
 	if (pos == -1)
 	{
@@ -41,11 +42,13 @@ void    change_occurrence(std::string line, char *to_change, char *to_what, char
 	int line_len = line.length();
 	while (pos < line_len && pos != -1)
 	{
+        line.erase(pos, word_len);
 		line.insert(pos, to_what);
 		pos += word_len;
-		pos = line.find(to_change, pos); // find a way to not messup the string to change if it shorter or longer
+		pos = line.find(to_change, pos);
 	}
 	outfile << line << "\n";
+    delete[] replace;
 }
 
 void    Replace_word(char *filename, char *to_change, char *to_what)
