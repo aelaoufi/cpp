@@ -60,6 +60,14 @@
         "unordered_map": "cpp",
         "utility": "cpp",
         "vector": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "__bits": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "deque": "cpp",
+        "fstream": "cpp",
+        "stack": "cpp",
+        "variant": "cpp",
+        "concepts": "cpp"
     }
 }
