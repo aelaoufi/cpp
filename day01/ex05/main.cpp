@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:14:20 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/24 14:16:41 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:59:42 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main ()
+int main (int ac, char **av)
 {
-    
+    (void)ac;
+    Harl h;
+    h.complain(av[1]);
     return (0);
 }
