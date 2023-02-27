@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 14:14:20 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/25 14:59:42 by anass_elaou      ###   ########.fr       */
+/*   Created: 2023/02/25 15:02:18 by anass_elaou       #+#    #+#             */
+/*   Updated: 2023/02/25 15:18:36 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int main (int ac, char **av)
 {
-    (void)ac;
-    Harl h;
-    h.complain(av[1]);
-    return (0);
+	(void)ac;
+	Harl comp;
+	
+	comp.complain(av[1]);
+	return (0);
 }
