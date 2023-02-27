@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:20:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/23 13:43:40 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:35:40 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void    change_occurrence(std::string line, char *to_change, char *to_what, char
 	}
 	outfile << line << "\n";
     delete[] replace;
+	outfile.close();
 }
 
 void    Replace_word(char *filename, char *to_change, char *to_what)
@@ -60,4 +61,5 @@ void    Replace_word(char *filename, char *to_change, char *to_what)
 	{
 		change_occurrence(line, to_change, to_what, filename);
 	}
+	infile.close();
 }
