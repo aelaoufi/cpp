@@ -5,20 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 17:34:10 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/02/27 18:28:49 by aelaoufi         ###   ########.fr       */
+/*   Created: 2023/02/28 12:39:04 by aelaoufi          #+#    #+#             */
+/*   Updated: 2023/02/28 15:19:38 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-int main()
+int main( void )
 {
-    Zombie nigga("test");
-    nigga.announce();
-    Zombie *zombie = newZombie("Anass");
-    zombie->announce();
-    delete(zombie);
-    randomChump("3zizi");
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
     return (0);
 }
