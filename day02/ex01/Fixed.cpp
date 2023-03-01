@@ -6,7 +6,7 @@
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:17:46 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/01 14:52:19 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/01 15:13:29 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void Fixed::setRawBits(int const raw) { RawBits = raw; }
 
 std::ostream &operator <<(std::ostream &output, const Fixed &fixed)
 {
-	output << fixed.getRawBits();
+	output << fixed.toFloat();
 	return (output);   
 }
 
