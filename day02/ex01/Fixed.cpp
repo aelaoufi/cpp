@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:17:46 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/02/28 18:18:03 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:52:19 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@ Fixed::Fixed()
 {
 	RawBits = 0;
 	std::cout << "Default constructor called\n";
+}
+
+Fixed::Fixed(const int integer)
+{
+	std::cout << "Int constructor called\n";
+	RawBits = integer * pow(2, Bits);
+}
+
+Fixed::Fixed(const float floatingPoint)
+{
+	std::cout << "Float constructor called\n";
+	RawBits = roundf(floatingPoint * pow(2.0, Bits));
 }
 
 Fixed::Fixed(const Fixed &_fixed) 
@@ -31,12 +43,26 @@ Fixed &Fixed::operator= (const Fixed &_fixed)
 	return (*this);
 }
 
-int	Fixed::getRawBits(void) const
-{
-	std::cout << "getRawBits member function called\n";
-	return (RawBits);
-}
+int	Fixed::getRawBits(void) const { return (RawBits); }
 
 void Fixed::setRawBits(int const raw) { RawBits = raw; }
+
+std::ostream &operator <<(std::ostream &output, const Fixed &fixed)
+{
+	output << fixed.getRawBits();
+	return (output);   
+}
+
+float Fixed::toFloat(void) const
+{
+	float _toFloat = getRawBits() / pow(2, Bits);
+	return (_toFloat);
+}
+
+int Fixed::toInt(void) const
+{
+	float _toInt = getRawBits() / pow(2, Bits);
+	return (roundf(_toInt));
+}
 
 Fixed::~Fixed() { std::cout << "Destructor called\n"; }

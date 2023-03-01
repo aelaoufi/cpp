@@ -10,12 +10,17 @@ class Fixed
 		static const int    Bits = 8;
 	public :
 		Fixed();
-		Fixed(const int );
+		Fixed(const int integer);
+		Fixed(const float floating_point);
 		Fixed(const Fixed &_fixed);
 		Fixed &operator= (const Fixed &_fixed);
 		~Fixed();
+
 		int     getRawBits(void) const;
 		void    setRawBits(int const raw);
+		float 	toFloat( void ) const;
+		int 	toInt( void ) const;
 };
+std::ostream &operator <<( std::ostream &output, const Fixed &fixed);
 
 #endif
