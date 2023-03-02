@@ -6,7 +6,7 @@
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:33:27 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/03/01 18:04:54 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/02 16:10:16 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) 
 {
-	Fixed a;
+	Fixed a(20);
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
@@ -22,6 +22,9 @@ int main( void )
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	//std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::min( a, b ) << std::endl;
+	
+	std::cout << a / b << std::endl;
+	std::cout << a + b << std::endl;
 	return 0; 
 }
