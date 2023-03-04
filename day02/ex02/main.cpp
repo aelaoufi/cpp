@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:33:27 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/03/02 16:10:16 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/03 13:28:36 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main( void )
 {
 	Fixed a(20);
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed c(0);
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
@@ -26,5 +27,6 @@ int main( void )
 	
 	std::cout << a / b << std::endl;
 	std::cout << a + b << std::endl;
+	std::cout << a / c << std::endl;
 	return 0; 
 }

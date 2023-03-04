@@ -1,4 +1,4 @@
-NAME = Fixed
+NAME = ClapTrap
 
 SRS = main.cpp ClapTrap.cpp
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:17:46 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/02 16:07:40 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/03 13:31:09 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,25 @@
 Fixed::Fixed()
 {
 	RawBits = 0;
-	std::cout << "Default constructor called\n";
 }
 
 Fixed::Fixed(const int integer)
 {
-	std::cout << "Int constructor called\n";
 	RawBits = integer * pow(2, Bits);
 }
 
 Fixed::Fixed(const float floatingPoint)
 {
-	std::cout << "Float constructor called\n";
 	RawBits = roundf(floatingPoint * pow(2.0, Bits));
 }
 
 Fixed::Fixed(const Fixed &_fixed) 
 {
-	std::cout << "Copy constructor called\n"; 
 	*this = _fixed;
 }
 
 Fixed &Fixed::operator= (const Fixed &_fixed)
 {
-	std::cout << "Copy assignment operator called\n";
 	RawBits = _fixed.getRawBits();
 	return (*this);
 }
@@ -175,4 +170,4 @@ Fixed	Fixed::max(const Fixed &Fp1, const Fixed &Fp2)
 	return (Fp1.RawBits > Fp2.RawBits ? Fp1 : Fp2);
 }
 
-Fixed::~Fixed() { std::cout << "Destructor called\n"; }
+Fixed::~Fixed() {}
