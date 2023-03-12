@@ -1,5 +1,5 @@
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -12,7 +12,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap &operator=(const ScavTrap &Scav);
 		~ScavTrap();
 
-		void guardGate();
+		void guardGate(void);
 };
 
 #endif
