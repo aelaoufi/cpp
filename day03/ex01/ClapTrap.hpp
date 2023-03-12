@@ -26,6 +26,9 @@ class ClapTrap
 		void setHit(unsigned int	_HitPts);
 		void setEnergy(unsigned int	_EnergyPts);
 		void setAttack(unsigned int	_AttackDmg);
+		std::string getName(void);
+		unsigned int getHit(void);
+		unsigned int getEnergy(void);
 		unsigned int getAttackdmg(void) const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:22:32 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/12 17:13:07 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/12 17:34:05 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,36 @@ ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 
 ScavTrap::ScavTrap(const ScavTrap &Scav)
 {
+	*this = Scav;
+	std::cout << "Copy constructor called\n";
+}
+
+void ClapTrap::attack(const std::string& target)
+{
+	if (this->EnergyPts > 0)
+	{
+		this->EnergyPts -= 1;
+		std::cout << "ScavTrap " << this->Name << " Attacks " << target << ", causing " << this->AttackDmg << " points of damage!\n";
+	}
+	else
+		std::cout << "You have no energy to do this action\n";
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &Scav)
+{
 	setHit(100);
 	setEnergy(50);
 	setAttack(20);
+	std::cout << "Copy Assignement operator called\n";
+	return (*this);
+}
+
+void	ScavTrap::guardGate()
+{
+	std::cout << "ScavTrap : " << getName() << " is in Gate keeper mode.\n";
+}
+
+ScavTrap::~ScavTrap()
+{
+	std::cout << " ScavTrap Destructor Called\n"; 
 }
