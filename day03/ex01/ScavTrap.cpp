@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:22:32 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/12 17:34:05 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:11:18 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 	setHit(100);
 	setEnergy(50);
 	setAttack(20);
-	std::cout << "Default ScarvTrap constructor called\n";
+	std::cout << "Default ScavTrap constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 	setHit(100);
 	setEnergy(50);
 	setAttack(20);
-	std::cout << "Parametric ScarvTrap constructor called\n";
+	std::cout << "Parametric ScavTrap constructor called\n";
 }
 
 ScavTrap::ScavTrap(const ScavTrap &Scav)
@@ -48,9 +48,10 @@ void ClapTrap::attack(const std::string& target)
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &Scav)
 {
-	setHit(100);
-	setEnergy(50);
-	setAttack(20);
+	this->setHit(100);
+	this->setEnergy(50);
+	this->setAttack(20);
+	this->setName(Scav.getName());
 	std::cout << "Copy Assignement operator called\n";
 	return (*this);
 }

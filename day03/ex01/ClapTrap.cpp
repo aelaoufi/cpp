@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:40:03 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/03/12 17:28:25 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:13:53 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void ClapTrap::setEnergy(unsigned int	_EnergyPts) { EnergyPts = _EnergyPts; }
 
 void ClapTrap::setAttack(unsigned int	_AttackDmg) { AttackDmg = _AttackDmg; }
 
-std::string ClapTrap::getName(void) { return (Name); }
+std::string ClapTrap::getName(void) const { return (Name); }
 
 unsigned int ClapTrap::getHit(void) { return (HitPts);}
 		
