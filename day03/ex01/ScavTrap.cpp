@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:22:32 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/12 18:11:18 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:47:32 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ ScavTrap::ScavTrap(const ScavTrap &Scav)
 	std::cout << "Copy constructor called\n";
 }
 
-void ClapTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string& target)
 {
-	if (this->EnergyPts > 0)
+	if (this->getEnergy() > 0)
 	{
-		this->EnergyPts -= 1;
-		std::cout << "ScavTrap " << this->Name << " Attacks " << target << ", causing " << this->AttackDmg << " points of damage!\n";
+		this->setEnergy(this->getEnergy() - 1);
+		std::cout << "ScavTrap " << this->getName() << " Attacks " << target << ", causing " << this->getAttackdmg() << " points of damage!\n";
 	}
 	else
 		std::cout << "You have no energy to do this action\n";
