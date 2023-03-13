@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 15:22:32 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/12 18:47:32 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:23:12 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 { 
-	setHit(100);
-	setEnergy(50);
-	setAttack(20);
-	std::cout << "Default ScavTrap constructor called\n";
+	HitPts = 100;
+	EnergyPts = 50;
+	AttackDmg = 20;
+	std::cout << " ScavTrap default constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 { 
-	setName(_name);
-	setHit(100);
-	setEnergy(50);
-	setAttack(20);
-	std::cout << "Parametric ScavTrap constructor called\n";
+	Name = _name;
+	HitPts = 100;
+	EnergyPts = 50;
+	AttackDmg = 20;
+	std::cout << " ScavTrap parametric constructor called\n";
 }
 
 ScavTrap::ScavTrap(const ScavTrap &Scav)
 {
 	*this = Scav;
-	std::cout << "Copy constructor called\n";
+	std::cout << " ScavTrap Copy constructor called\n";
 }
 
 void ScavTrap::attack(const std::string& target)
@@ -40,25 +40,25 @@ void ScavTrap::attack(const std::string& target)
 	if (this->getEnergy() > 0)
 	{
 		this->setEnergy(this->getEnergy() - 1);
-		std::cout << "ScavTrap " << this->getName() << " Attacks " << target << ", causing " << this->getAttackdmg() << " points of damage!\n";
+		std::cout << " ScavTrap " << this->getName() << " Attacks " << target << ", causing " << this->getAttackdmg() << " points of damage!\n";
 	}
 	else
-		std::cout << "You have no energy to do this action\n";
+		std::cout << " You have no energy to do this action\n";
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &Scav)
 {
-	this->setHit(100);
-	this->setEnergy(50);
-	this->setAttack(20);
-	this->setName(Scav.getName());
-	std::cout << "Copy Assignement operator called\n";
+	this->HitPts = Scav.HitPts;
+	this->EnergyPts = Scav.EnergyPts;
+	this->AttackDmg = Scav.AttackDmg;
+	this->Name = Scav.Name;
+	std::cout << " ScavTrap Copy Assignement operator called\n";
 	return (*this);
 }
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap : " << getName() << " is in Gate keeper mode.\n";
+	std::cout << " ScavTrap : " << getName() << " is in Gate keeper mode.\n";
 }
 
 ScavTrap::~ScavTrap()
