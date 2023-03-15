@@ -14,10 +14,10 @@ class Animal
 		Animal(std::string _type);
 		Animal(const Animal &Anml);
 		Animal &operator=(const Animal &Anml);
-		~Animal();
+		virtual ~Animal();
 
-		virtual void	makeSound(void);
-		std::string		getName(void);
+		virtual void	makeSound(void) const;
+		std::string		getType(void) const;
 };
 
 #endif

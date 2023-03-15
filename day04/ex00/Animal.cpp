@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:01:16 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/15 16:18:49 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:56:24 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Animal::Animal()
 	std::cout << "Default Animal constructor\n";
 }
 
-Animal::Animal(std::string _type) : type { _type }
+Animal::Animal(std::string _type) : type(_type)
 {
 	std::cout << "Parametric Animal constructor\n";
 }
@@ -35,12 +35,12 @@ Animal &Animal::operator=(const Animal &Anml)
 	return (*this);
 }
 
-void	Animal::makeSound(void)
+void	Animal::makeSound(void) const
 {
 	std::cout << "(Complete Silence...)\n";
 }
 
-std::string		Animal::getName(void)
+std::string		Animal::getType(void) const
 {
 	return (type);
 }

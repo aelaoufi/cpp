@@ -3,17 +3,16 @@
 
 #include "Animal.hpp"
 
-class Cat : Public Animal
+class Cat : public Animal
 {
 	public :
 		Cat();
 		Cat(std::string _type);
-		Cat(const Animal &Anml);
-		Animal &operator=(const Animal &Anml);
-		~Animal();
+		Cat(const Cat &Catt);
+		Cat &operator=(const Cat &Catt);
+		~Cat();
 
-		virtual void	makeSound(void);
-		std::string		getName(void);
+		virtual void	makeSound(void) const;
 };
 
 #endif
