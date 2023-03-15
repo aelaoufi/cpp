@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:39:48 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/03/13 16:18:24 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/14 15:33:36 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main()
 	monster1.setName("simo");
 	monster1.attack("Anass");
 	monster2.takeDamage(monster1.getAttackdmg());
+	std::cout << monster2.getName() << " Has " << monster2.getHit() << " Hit points\n";
 	monster1.beRepaired(12);
 	a.beRepaired(10);
 	monster1.highFiveGuys();

@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:40:03 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/03/12 18:51:22 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:33:45 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->HitPts <= amount && this->AttackDmg != 0)
 	{
-		//this->HitPts = 0;
+		this->HitPts = 0;
 		std::cout << "ClapTrap " << this->Name << " took " << amount << " Damage\n" << this->Name << " is dead\n";
 	}
 	else
 	{
-		//this->HitPts -= amount;
+		this->HitPts -= amount;
 		std::cout << "ClapTrap " << this->Name << " took " << amount << " Damage\n";
 	}
 }
