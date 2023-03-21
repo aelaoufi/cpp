@@ -6,7 +6,17 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:45:49 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/21 15:45:50 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:23:47 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Ice.hpp"
+
+Ice::Ice(){	}
+
+Ice::Ice(std::string type) : AMateria(type) { }
+
+Ice::Ice (const Ice &Spice)
+{
+	
+}
