@@ -11,9 +11,9 @@ class Ice : public AMateria
 		Ice();
 		Ice(std::string type);
 		Ice(const Ice &Spice);
-		Ice operator=(const Ice &Spice);
+		Ice &operator=(const Ice &Spice);
 
-		void		use(ICharacter& target);
+		void		use(ICharacter &target);
 		~Ice();
 };
 

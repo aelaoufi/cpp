@@ -2,10 +2,15 @@
 #define CHARACTER_HPP
 
 #include <string>
+#include "ICharacter.hpp"
 
-class Character
+class Character : public ICharacter
 {
-	
+	protected :
+		std::string &Name;
+
+	public :
+		
 };
 
 #endif
