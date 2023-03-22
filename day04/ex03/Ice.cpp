@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:45:49 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/21 19:03:20 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:56:44 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ Ice &Ice::operator=(const Ice &Spice)
 void	Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+}
+
+AMateria *AMateria::clone() const
+{
+	Ice *ice = new Ice;
+	ice->type = this->type;
+	return (ice);
 }
 
 Ice::~Ice() = default;
