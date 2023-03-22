@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:31:15 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 17:54:41 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:47:22 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &MatSource)
 	return (*this);
 }
 
-MateriaSource::~MateriaSource() = default;
+MateriaSource::~MateriaSource() { };
 
 void	MateriaSource::learnMateria(AMateria *mat)
 {
@@ -38,5 +38,17 @@ void	MateriaSource::learnMateria(AMateria *mat)
 	{
 		if (!slots[i])
 			slots[i] = mat->clone();
-	}	
+	}
+}
+
+AMateria	*MateriaSource::createMateria(std::string const &type)
+{
+	AMateria *mat = NULL;
+	
+	for (int i = 4; i > 0; i--)
+	{
+		if (slots[i] && slots[i]->getType().compare(type) == 0)
+			mat = slots[i]->clone();
+	}
+	return (mat);
 }

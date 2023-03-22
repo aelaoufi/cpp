@@ -6,10 +6,10 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:36:29 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 14:37:44 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:47:37 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
 
-ICharacter::~ICharacter() = default;
+ICharacter::~ICharacter() { };

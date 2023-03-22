@@ -1,6 +1,8 @@
 NAME = AMateria
 
-SRS = main.cpp AMateria.cpp
+SRS = 	main.cpp AMateria.cpp Character.cpp \
+		Cure.cpp Ice.cpp ICharacter.cpp \
+		IMateriaSource.cpp MateriaSource.cpp \
 
 FLAGS = -Wall -Werror -Wextra -std=c++98 -o
 

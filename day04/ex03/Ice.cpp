@@ -6,15 +6,13 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:45:49 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 14:56:44 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:47:42 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(){	}
-
-Ice::Ice(std::string type) : AMateria(type) { }
+Ice::Ice() : AMateria("ice") { }
 
 Ice::Ice (const Ice &Spice)
 {
@@ -39,4 +37,4 @@ AMateria *AMateria::clone() const
 	return (ice);
 }
 
-Ice::~Ice() = default;
+Ice::~Ice() { };

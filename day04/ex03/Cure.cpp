@@ -6,15 +6,13 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:32:42 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 14:57:15 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:47:50 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(){	}
-
-Cure::Cure(std::string type) : AMateria(type) { }
+Cure::Cure() : AMateria("cure") { }
 
 Cure::Cure (const Cure &dwa)
 {
@@ -39,4 +37,4 @@ AMateria *AMateria::clone() const
 	return (cure);
 }
 
-Cure::~Cure() = default;
+Cure::~Cure() { };

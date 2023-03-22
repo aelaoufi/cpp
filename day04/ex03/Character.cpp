@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:30:47 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 18:00:24 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:47:55 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Character &Character::operator=(const Character &Charact)
 	return (*this);
 }
 
-Character::~Character() = default;
+Character::~Character() { };
 
 std::string const &Character::getName() const
 {
