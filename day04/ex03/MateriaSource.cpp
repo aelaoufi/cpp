@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:31:15 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 17:46:38 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:54:41 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &MatSource)
 
 MateriaSource::~MateriaSource() = default;
 
-void	MateriaSource::learnMateria(AMateria*)
+void	MateriaSource::learnMateria(AMateria *mat)
 {
-	AMateria *Mat = new *AMateria;
-	
+	for (int i = 0; i < 4; i++)
+	{
+		if (!slots[i])
+			slots[i] = mat->clone();
+	}	
 }

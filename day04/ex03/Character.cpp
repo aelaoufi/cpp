@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:30:47 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 17:41:45 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:00:24 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void Character::equip(AMateria *m)
 	{
 		if (!slots[i])
 		{
-			slots[i] = m;
+			slots[i] = m->clone();
 			break ;
 		}
 	}
@@ -60,7 +60,14 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 4)
 		return ;
-	slots[5] = slots[idx];
+	if (slots[5])
+	{
+		delete slots[5];
+		slots[5] = NULL;
+		slots[5] = slots[idx];
+	}
+	else
+		slots[5] = slots[idx];
 	slots[idx] = NULL;
 }
 
