@@ -6,11 +6,12 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:30:47 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/23 19:46:51 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:08:06 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <iostream>
 
 Character::Character()
 {
