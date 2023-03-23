@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 18:40:16 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 18:46:38 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:51:14 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 int main() 
 {
 	IMateriaSource	*src = new MateriaSource();
-	ICharacter	*me = new Character("me");
-	AMateria	*tmp;
-	ICharacter	*bob = new Character("bob");
+	ICharacter		*me = new Character("me");
+	AMateria		*tmp;
+	ICharacter		*bob = new Character("bob");
 	
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());

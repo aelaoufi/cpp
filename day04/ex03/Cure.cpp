@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:32:42 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 18:47:50 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:47:55 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	Cure::use(ICharacter &target)
 	std::cout << "* heals " << target.getName() << "'s wounds*\n";
 }
 
-AMateria *AMateria::clone() const
+Cure *Cure::clone() const
 {
 	Cure *cure = new Cure;
 	cure->type = this->type;

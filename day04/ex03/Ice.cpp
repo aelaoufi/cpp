@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:45:49 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 18:47:42 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:48:01 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	Ice::use(ICharacter &target)
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 }
 
-AMateria *AMateria::clone() const
+Ice *Ice::clone() const
 {
 	Ice *ice = new Ice;
 	ice->type = this->type;

@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:30:47 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/22 18:47:55 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:46:51 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,21 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 4)
 		return ;
-	if (slots[5])
+	if (slots[4])
 	{
-		delete slots[5];
-		slots[5] = NULL;
-		slots[5] = slots[idx];
+		delete slots[4];
+		slots[4] = NULL;
+		slots[4] = slots[idx];
 	}
 	else
-		slots[5] = slots[idx];
+		slots[4] = slots[idx];
 	slots[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx < 0 || idx > 4)
-		return ;
-	slots[idx]->use(target);
+	if (idx >= 0 && idx <= 3)
+	{
+		slots[idx]->use(target);
+	}
 }
