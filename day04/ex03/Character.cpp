@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:30:47 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/24 00:09:22 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:26:34 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,24 @@ Character &Character::operator=(const Character &Charact)
 {
 	this->Name = Charact.Name;
 	for (int i = 0; i < 5; i++)
-		this->slots[i] = Charact.slots[i];
+	{
+		if (this->slots[i])
+			delete this->slots[i];
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		if (Charact.slots[i])
+			this->slots[i] = Charact.slots[i]->clone();
+	}
 	return (*this);
 }
 
-Character::~Character() { };
+Character::~Character()
+{
+	for (int i = 0; i < 5; i++)
+		if (this->slots[i])
+			delete slots[i];
+};
 
 std::string const &Character::getName() const
 {

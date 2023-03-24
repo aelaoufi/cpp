@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:45:49 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/23 21:07:32 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:17:05 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	Ice::use(ICharacter &target)
 Ice *Ice::clone() const
 {
 	Ice *ice = new Ice;
-	ice->type = this->type;
 	return (ice);
 }
 

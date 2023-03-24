@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:32:42 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/23 23:48:26 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:03:06 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	Cure::use(ICharacter &target)
 Cure *Cure::clone() const
 {
 	Cure *cure = new Cure;
-	cure->type = this->type;
 	return (cure);
 }
 
