@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:30:47 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/23 21:08:06 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:07:31 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
+	if (!m)
+		return ;
 	for (int i = 0; i < 4; i++)
 	{
 		if (!slots[i])
@@ -74,7 +76,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx >= 0 && idx <= 3)
+	if (slots[idx] && (idx >= 0 && idx <= 3))
 	{
 		slots[idx]->use(target);
 	}

@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:31:15 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/23 21:08:56 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:03:24 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 {
 	AMateria *mat = NULL;
 	
-	for (int i = 3; i > 0; i--)
+	for (int i = 3; i >= 0; i--)
 	{
 		if (slots[i])
-		{	
+		{
 			if (slots[i]->getType().compare(type) == 0)
 				mat = slots[i]->clone();
 		}

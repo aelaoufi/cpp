@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 18:40:16 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/23 21:09:09 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:08:07 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,18 @@ int main()
 	ICharacter		*bob = new Character("bob");
 
 	
-	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+	src->learnMateria(new Ice());
 	tmp = src->createMateria("ice");
-	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	me->use(0, *bob);
 	me->use(1, *bob);
-	
+	me->use(3, *bob);
+	tmp = src->createMateria("test");
+	me->equip(tmp);
+
 	delete bob;
 	delete me;
 	delete src;
