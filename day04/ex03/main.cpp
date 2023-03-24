@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 18:40:16 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/24 00:08:07 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 00:10:32 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int main()
 	me->use(3, *bob);
 	tmp = src->createMateria("test");
 	me->equip(tmp);
+	me->unequip(1);
+	me->use(1, *bob);
+	me->use(0, *bob);
 
 	delete bob;
 	delete me;
