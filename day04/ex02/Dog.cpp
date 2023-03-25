@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:01:05 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/25 00:20:09 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/25 00:33:05 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,6 @@ Dog &Dog::operator=(const Dog &Dogg)
 {
 	std::cout << "Dog copy assignement operator \n";
 	this->type = Dogg.type;
-	if (!this->brain)
-	{
-		this->brain = new Brain();
-		return (*this);
-	}
-	delete this->brain;
 	this->brain = new Brain();
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:01:10 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/25 00:18:50 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/25 00:31:42 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,6 @@ Cat &Cat::operator=(const Cat &Catt)
 {
 	std::cout << "Cat copy assignement operator \n";
 	this->type = Catt.type;
-	if (!this->brain)
-	{
-		this->brain = new Brain;
-		return (*this);
-	}
-	delete this->brain;
 	this->brain = new Brain;
 	return (*this);
 }
