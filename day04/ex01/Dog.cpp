@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:01:05 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/17 19:58:09 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/25 00:19:02 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,15 @@ Dog::Dog(const Dog &Dogg)
 
 Dog &Dog::operator=(const Dog &Dogg)
 {
-	this->type = Dogg.type;
-	this->brain = Dogg.brain;
 	std::cout << "Dog copy assignement operator \n";
+	this->type = Dogg.type;
+	if (!this->brain)
+	{
+		this->brain = new Brain;
+		return (*this);
+	}
+	delete this->brain;
+	this->brain = new Brain;
 	return (*this);
 }
 
@@ -46,5 +52,6 @@ void	Dog::makeSound(void) const
 Dog::~Dog()
 {
 	std::cout << "Dog Destructor\n";
-	delete(brain);
+	if (brain)
+		delete(brain);
 }

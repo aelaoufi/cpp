@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:00:58 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/24 21:56:11 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:42:34 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int main()
 	delete meta;
 	delete i;
 	delete j;
+	delete WA;
+	delete WC;
+	delete WWC;
 	return (0);
 }

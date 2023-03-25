@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 19:31:33 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/03/19 16:11:48 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/25 00:19:44 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ Brain &Brain::operator=(const Brain &Brr)
 void	Brain::printSomeIdeas(void) const
 {
 	for (int i = 0; i < 5; i++)
+	{
 		std::cout << ideas[i] << "\n";
+	}
 }
 
 Brain::~Brain()

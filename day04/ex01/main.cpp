@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 21:01:32 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/03/19 16:09:26 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/24 23:14:36 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,4 @@ int main()
 	for (int i = 5; i < 10; i++)
 		animals[i] = Cat();
 	delete[] animals;
-	while (1);
 }

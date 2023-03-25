@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 14:01:10 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/19 16:09:56 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/03/25 00:18:50 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,15 @@ Cat::Cat(const Cat &Catt)
 
 Cat &Cat::operator=(const Cat &Catt)
 {
-	this->type = Catt.type;
-	this->brain = Catt.brain;
 	std::cout << "Cat copy assignement operator \n";
+	this->type = Catt.type;
+	if (!this->brain)
+	{
+		this->brain = new Brain;
+		return (*this);
+	}
+	delete this->brain;
+	this->brain = new Brain;
 	return (*this);
 }
 
@@ -46,5 +52,6 @@ void Cat::makeSound(void) const
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor\n";
-	delete(brain);
+	if (brain)
+		delete(brain);
 }
