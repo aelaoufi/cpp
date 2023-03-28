@@ -26,7 +26,19 @@ class Bureaucrat
 		Bureaucrat	operator--(int);
 		class GradeTooLowException : public std::exception
 		{
-			GradeTooLowException(std::string exptn);
+			virtual const char* what() const
+			throw() 
+			{
+            	return ("Error : GradeTooLow\n");
+        	}
+		};
+		class GradeTooHighException : public std::exception
+		{
+			virtual const char* what() const
+			throw() 
+			{
+            	return ("Error : GradeTooHigh\n");
+        	}
 		};
 };
 
