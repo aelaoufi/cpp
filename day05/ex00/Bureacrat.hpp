@@ -19,29 +19,28 @@ class Bureaucrat
 		~Bureaucrat();
 
 		std::string	getName(void) const;
-		int			getGrade(void);
-		Bureaucrat	operator++();
-		Bureaucrat	operator--();
-		Bureaucrat	operator++(int);
-		Bureaucrat	operator--(int);
+		int			getGrade(void) const;
+		void		IncrmntGrade(void);
+		void		DcrmntGrade(void);
+
 		class GradeTooLowException : public std::exception
 		{
 			virtual const char* what() const
 			throw() 
 			{
-            	return ("Error : GradeTooLow\n");
+            	return ("GradeTooLow\n");
         	}
 		};
 		class GradeTooHighException : public std::exception
 		{
 			virtual const char* what() const
-			throw() 
+			throw()
 			{
-            	return ("Error : GradeTooHigh\n");
+            	return ("GradeTooHigh\n");
         	}
 		};
 };
 
-Bureaucrat &operator<<(std::ostream &output, const Bureaucrat &Bureau);
+std::ostream &operator<<(std::ostream &output, const Bureaucrat &Bureau);
 
 #endif
