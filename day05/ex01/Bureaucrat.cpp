@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:23:42 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/31 20:12:37 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/29 21:50:52 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Bureaucrat::Bureaucrat(std::string _Name, int _Grade) : Name(_Name)
 	}
 	catch (const std::exception &exp)
 	{
-		std::cerr << "Exception caught : " << exp.what();
+		std::cerr << "Exception caught : " << exp.what(); 
 	}
 }
 

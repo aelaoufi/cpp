@@ -1,4 +1,4 @@
-NAME = Animals
+NAME = Form
 
 SRS = 	main.cpp Animal.cpp Cat.cpp Dog.cpp \
 		WrongCat.cpp WrongAnimal.cpp
