@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:23:42 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/29 21:50:52 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:08:09 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,12 @@ std::ostream &operator<<(std::ostream &output, const Bureaucrat &Bureau)
 		output << " Due to miss graring";
 	output << "\n";
 	return (output);
+}
+
+void	Bureaucrat::signForm(Form &frm)
+{
+	if (frm.getSign() == 1)
+		std::cout << Name << " signed " << frm.getName() << "/n";
+	else
+		std::cout << Name << " couldn't sign " << frm.getName() << " because GradeTooLow\n";
 }

@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:23:44 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/30 20:41:45 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/03/31 23:01:11 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,38 @@
 
 Form::Form() : GradeToExec(1) , GradeToSign(1)
 {
-	
+	Signed = 0;
 }
 
 Form::Form(std::string _name, bool _signed, int _gradetosign, int _gradetoexec) :
 	Name(_name), GradeToSign(_gradetosign), GradeToExec(_gradetoexec)
 {
-	Signed = _signed;
+	Signed = 0;
 	try
 	{
 		if (_gradetoexec < 1 || _gradetosign < 1)
 		{
-			throw (Form::GradeTooHighException());
+			throw (GradeTooHighException());
 		}
 		if (_gradetoexec > 1 || _gradetosign > 1)
 		{
-			throw (Form::GradeTooLowException());
+			throw (GradeTooLowException());
 		}
 	}
 	catch (const std::exception &exp)
 	{
-		std::cerr << "Exception caught : " << exp.what(); 
+		std::cerr << "Exception caught : " << exp.what();
 	}
 }
 
-Form::Form(const Form &Bureau)
+Form::Form(const Form &frm) : Name(frm.Name), GradeToSign(frm.GradeToSign), GradeToExec(frm.GradeToExec)
 {
-	*this = Bureau; 
+	*this = frm;
 }
 
 Form &Form::operator=(const Form &frm)
 {
-	
+	this->Signed = frm.Signed;
 	return (*this);
 }
 
@@ -59,7 +59,40 @@ std::string	Form::getName(void) const
 	return (Name);
 }
 
+bool Form::getSign(void) const
+{
+	return (Signed);
+}
+
 int	Form::getGradeToSign(void) const
 {
 	return (GradeToSign);
+}
+
+int	Form::getGradeToExec(void) const
+{
+	return (GradeToExec);
+}
+
+void Form::beSigned(Bureaucrat &Bureau)
+{
+	try
+	{
+		if (Bureau.getGrade() <= this->GradeToSign)
+			Signed = 1;
+		else
+			throw (GradeTooLowException());
+	}
+	catch (const std::exception &exp)
+	{
+		std::cerr << "Exception caught : " << exp.what();
+	}
+}
+
+std::ostream &operator<<(std::ostream &output, const Form &frm)
+{
+	output << "Bureaucrat " << frm.getName() << " has a gradeToSign of " << frm.getGradeToSign()
+			<< " and a GradeToExecute of " << frm.getGradeToExec() << " and a signing status of " << frm.getSign();
+	output << "\n";
+	return (output);
 }

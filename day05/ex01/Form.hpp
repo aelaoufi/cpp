@@ -15,9 +15,10 @@ class Form
 		Form(std::string _name, bool _signed, int _gradetosign, int _gradetoexec);
 		Form(const Form &frm);
 		Form &operator=(const Form &frm);
+		~Form();
 
 		std::string	getName(void) const;
-		bool		getSign(void);
+		bool		getSign(void) const;
 		int			getGradeToSign(void) const;
 		int			getGradeToExec(void) const;
 		void		beSigned(Bureaucrat &Bureau);
