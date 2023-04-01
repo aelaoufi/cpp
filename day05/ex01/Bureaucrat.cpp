@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 22:23:42 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/31 23:08:09 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:04:10 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ std::ostream &operator<<(std::ostream &output, const Bureaucrat &Bureau)
 void	Bureaucrat::signForm(Form &frm)
 {
 	if (frm.getSign() == 1)
-		std::cout << Name << " signed " << frm.getName() << "/n";
+		std::cout << Name << " signed " << frm.getName() << "\n";
 	else
 		std::cout << Name << " couldn't sign " << frm.getName() << " because GradeTooLow\n";
 }

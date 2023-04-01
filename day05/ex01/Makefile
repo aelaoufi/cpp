@@ -1,7 +1,6 @@
 NAME = Form
 
-SRS = 	main.cpp Animal.cpp Cat.cpp Dog.cpp \
-		WrongCat.cpp WrongAnimal.cpp
+SRS = 	main.cpp Form.cpp Bureaucrat.cpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98 -o
 

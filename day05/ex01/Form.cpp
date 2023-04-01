@@ -6,18 +6,18 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:23:44 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/03/31 23:01:11 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:57:10 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : GradeToExec(1) , GradeToSign(1)
+Form::Form() : GradeToSign(1), GradeToExec(1)
 {
 	Signed = 0;
 }
 
-Form::Form(std::string _name, bool _signed, int _gradetosign, int _gradetoexec) :
+Form::Form(std::string _name, int _gradetosign, int _gradetoexec) :
 	Name(_name), GradeToSign(_gradetosign), GradeToExec(_gradetoexec)
 {
 	Signed = 0;
@@ -27,7 +27,7 @@ Form::Form(std::string _name, bool _signed, int _gradetosign, int _gradetoexec) 
 		{
 			throw (GradeTooHighException());
 		}
-		if (_gradetoexec > 1 || _gradetosign > 1)
+		if (_gradetoexec > 150 || _gradetosign > 150)
 		{
 			throw (GradeTooLowException());
 		}

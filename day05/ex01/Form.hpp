@@ -3,6 +3,8 @@
 
 #include "Bureacrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	private :
@@ -12,7 +14,7 @@ class Form
 		const int			GradeToExec;
 	public :
 		Form();
-		Form(std::string _name, bool _signed, int _gradetosign, int _gradetoexec);
+		Form(std::string _name, int _gradetosign, int _gradetoexec);
 		Form(const Form &frm);
 		Form &operator=(const Form &frm);
 		~Form();
