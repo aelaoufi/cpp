@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:23:44 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/03 19:55:39 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:04:31 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,10 @@ int	AForm::getGradeToExec(void) const
 	return (GradeToExec);
 }
 
-// void AForm::beSigned(Bureaucrat &Bureau)
-// {
-// 	try
-// 	{
-// 		if (Bureau.getGrade() <= this->GradeToSign)
-// 			Signed = 1;
-// 		else
-// 			throw (GradeTooLowException());
-// 	}
-// 	catch (const std::exception &exp)
-// 	{
-// 		std::cerr << "Exception caught : " << exp.what();
-// 	}
-// }
+void	AForm::sign(bool sign)
+{
+	Signed = sign;
+}
 
 std::ostream &operator<<(std::ostream &output, const AForm &frm)
 {

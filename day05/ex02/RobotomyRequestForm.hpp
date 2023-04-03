@@ -18,6 +18,7 @@ class RobotomyRequestForm : public AForm
 
 		std::string			getTarget(void) const;
 		virtual void		beSigned(Bureaucrat &Bureau);
+		virtual void		execute(Bureaucrat const &executor) const;
 };
 
 #endif
