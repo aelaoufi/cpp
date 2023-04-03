@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 21:23:18 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/03 22:17:13 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:35:24 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,6 @@ PresidentialPardonForm::~PresidentialPardonForm()
 std::string	PresidentialPardonForm::getTarget(void) const
 {
 	return (Target);
-}
-
-void	PresidentialPardonForm::beSigned(Bureaucrat &Bureau)
-{
-	try
-	{
-		if (getGradeToSign() > 25 || getGradeToExec() > 5)
-			throw (GradeTooLowException());
-		else
-			std::cout << Target << " has been pardoned by Zaphod Beeblebrox\n";
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "PresidentialPardon Failed" << e.what();
-	}
 }
 
 void	PresidentialPardonForm::beSigned(Bureaucrat &Bureau)

@@ -1,4 +1,4 @@
-NAME = Animals
+NAME = Form_actions
 
 SRS = 	main.cpp Bureaucrat.cpp AForm.cpp \
 		ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \

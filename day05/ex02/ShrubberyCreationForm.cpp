@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:04:28 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/03 22:14:14 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:38:25 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	try
 	{
-		if (executor.getGrade() < 137)
+		if (executor.getGrade() > 137)
 			throw (GradeTooLowException());
 		else
 		{
 			std::ofstream file(Target + "_shrubbery");
-			file << "          /\n         /  \\\n        /    \\\n       /      \\\n      /        \\\n     /          \\\n    /            \\\n   /              \\\n  /                \\\n /__________________\\\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n";
+			file << "          /\\\n         /  \\\n        /    \\\n       /      \\\n      /        \\\n     /          \\\n    /            \\\n   /              \\\n  /                \\\n /__________________\\\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n        |||||\n";
 			file.close();
 		}
 	}
