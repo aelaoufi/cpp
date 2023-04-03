@@ -1,7 +1,8 @@
 NAME = Animals
 
-SRS = 	main.cpp Animal.cpp Cat.cpp Dog.cpp \
-		WrongCat.cpp WrongAnimal.cpp
+SRS = 	main.cpp Bureaucrat.cpp AForm.cpp \
+		ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98 -o
 
