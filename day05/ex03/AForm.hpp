@@ -43,6 +43,14 @@ class AForm
             	return ("GradeTooHigh\n");
         	}
 		};
+		class UnknownForm : public std::exception
+		{
+			virtual const char* what() const
+			throw()
+			{
+            	return ("There is no such form\n");
+        	}
+		};
 };
 
 std::ostream &operator<<(std::ostream &output, const AForm &frm);

@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 20:24:48 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/03 22:16:04 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:16:10 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void		RobotomyRequestForm::execute(Bureaucrat const &executor) const
 			throw (GradeTooLowException());
 		else
 		{
-			std::cout << "*Drilling noises* " << Target << " has been robotomized successfully 50%% of the time\n";
+			std::cout << "*Drilling noises* " << Target << " has been robotomized successfully 50% of the time\n";
 		}
 	}
 	catch(const std::exception& e)

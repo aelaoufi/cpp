@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 19:55:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/05 20:26:00 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:15:19 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ AForm	*Intern::makeForm(std::string Form, std::string Target)
 {
 	int i = 0;
 	
-	std::string msg[3] = {"robotomy request", "presidential pardon form", "shrubbery creation form"};
+	std::string msg[3] = {"robotomy request form", "presidential pardon form", "shrubbery creation form"};
 	for (i = 0; i < 3; i++)
 	{
 		if (Form.compare(msg[i]) == 0)
@@ -63,8 +63,6 @@ AForm	*Intern::makeForm(std::string Form, std::string Target)
 			std::cout << "Intern Creates " << Form << "\n";
 			return (shru);
 		}
-		default:
-			std::cerr << "Form doesn't exist\n";
 	}
-	return (NULL);
+	throw(AForm::UnknownForm());
 }
