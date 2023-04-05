@@ -6,19 +6,20 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 22:27:11 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/03 22:34:07 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/05 20:29:06 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "AForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-	Bureaucrat smaklo("sma9lo", 111);
+	Bureaucrat simo("SIMO", 50);
+	Intern  someRandomIntern;
+    AForm*   rrf;
 	
-	ShrubberyCreationForm arbre("arbre");
-	arbre.beSigned(smaklo);
-	arbre.execute(smaklo);
+    rrf = someRandomIntern.makeForm("shrubbery creation form", "simo");
+	rrf->beSigned(simo);
+	rrf->execute(simo);
 }

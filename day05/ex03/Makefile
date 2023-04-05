@@ -1,8 +1,8 @@
-NAME = Form_actions
+NAME = Intern
 
 SRS = 	main.cpp Bureaucrat.cpp AForm.cpp \
 		ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp Intern.cpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98 -o
 
