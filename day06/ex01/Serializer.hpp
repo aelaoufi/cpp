@@ -3,19 +3,19 @@
 
 #include <iostream>
 
-typedef struct Data
+typedef struct 	s_data
 {
 	int 	intbohdo;
 	char	charbohdo;
 	double	doublebohdo;
 	char	*charmachibohdo;
-};
+}				t_data;
 
 class Serialize
 {
 	public :
-		static uintptr_t	serialize(Data *ptr);
-		static Data 		*deserialize(uintptr_t raw);
+		static uintptr_t	serialize(t_data *ptr);
+		static t_data 		*deserialize(uintptr_t raw);
 }; 
 
 #endif
