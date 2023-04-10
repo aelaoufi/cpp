@@ -7,7 +7,12 @@
 
 class Base
 {
-	
+	public :
+		virtual ~Base(){};
 };
+
+Base	*genarate(void);
+void	identify(Base *p);
+void	identify(Base &p);
 
 #endif

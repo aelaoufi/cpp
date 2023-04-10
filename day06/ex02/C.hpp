@@ -2,9 +2,9 @@
 #define C_HPP
 
 
-#include <Base.hpp>
+#include "Base.hpp"
 
-class C
+class C : public Base
 {
 	
 };

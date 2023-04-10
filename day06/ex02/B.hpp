@@ -2,9 +2,9 @@
 #define B_HPP
 
 
-#include <Base.hpp>
+#include "Base.hpp"
 
-class B
+class B : public Base
 {
 	
 };
