@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 20:22:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/10 00:38:58 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/10 20:23:25 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,38 @@ void	identify(Base *p)
 	C *c = dynamic_cast<C*>(p);
 	if (c != NULL)
 		std::cout << "the type of (pushin) p is C\n";
+	if (!a && !b && !c)
+		std::cout << "No type found\n";
 }
 
 void	identify(Base &p)
 {
+	try
+	{
 		A &a = dynamic_cast<A&>(p);
-	if (a != NULL)
 		std::cout << "the type of (pushin) p is A\n";
-	B &b = dynamic_cast<B&>(p);
-	if (b != NULL)
-		std::cout << "the type of (pushin) p is B\n";
-	C &c = dynamic_cast<C&>(p);
-	if (c != NULL)
-		std::cout << "the type of (pushin) p is C\n";
+		(void)a;
+	}
+	catch (const std::bad_cast &e)
+	{
+		try
+		{
+			B &b = dynamic_cast<B&>(p);
+			std::cout << "the type of (pushin) p is B\n";
+			(void)b;
+		}
+		catch (const std::bad_cast &e)
+		{
+			try
+			{
+				C &c = dynamic_cast<C&>(p);
+				std::cout << "the type of (pushin) p is C\n";
+				(void)c;
+			}
+			catch (const std::bad_cast &e)
+			{
+				std::cout << "No type found\n";
+			}
+		}
+	}
 }
