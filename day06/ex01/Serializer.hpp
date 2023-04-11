@@ -8,7 +8,6 @@ typedef struct 	s_data
 	int 	intbohdo;
 	char	charbohdo;
 	double	doublebohdo;
-	char	*charmachibohdo;
 }				t_data;
 
 class Serialize
