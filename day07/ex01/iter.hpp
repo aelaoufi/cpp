@@ -4,7 +4,7 @@
 #include <iostream>
 
 template <typename T>
-void iter(T *var1, int array_size, T(f)(T&))
+void iter(T *var1, int array_size, void(f)(T&))
 {
 	if (f != NULL && array_size > 0)
 	{

@@ -6,13 +6,13 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 01:16:28 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/11 01:16:31 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/12 22:50:38 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
