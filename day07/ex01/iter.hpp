@@ -4,14 +4,14 @@
 #include <iostream>
 
 template <typename T>
-void iter(T *var1, unsigned int array_size, void(f)(unsigned int, T))
+void iter(T *var1, int array_size, T(f)(T&))
 {
-	if (T && f && array_size)
+	if (f != NULL && array_size > 0)
 	{
 		int i = 0;
-		while (T[i] && i < array_size)
+		while (var1[i] && i < array_size)
 		{
-			f(array_size, var1[i]);
+			f(var1[i]);
 			i++;
 		}
 	}
