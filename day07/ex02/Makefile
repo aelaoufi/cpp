@@ -1,4 +1,4 @@
-NAME = Array
+NAME = Array_
 
 SRS = main.cpp
 

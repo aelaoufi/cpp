@@ -7,29 +7,53 @@ template <typename T>
 class Array
 {
 	private :
-		T	*array;
+		T				*array;
+		unsigned int	_n;
 
 	public :
-		Array() { array = new T[]; }
-		Array(unsigned int n) { array = new T[n]; }
-		Array(const Array arr) { this = arr; }
-		Array operator=(const Array arr)
+		Array() { array = NULL; }
+
+		Array(unsigned int n) 
 		{
-			for (int i = 0; arr.array[i]; i++)
-				this->array[i] = arr.array[i];
+			array = new T[n];
+			_n = n;
 		}
 
-		int &operator[](unsigned int index)
+		Array(const Array &arr)
 		{
-			this->array[index];
+			this->array = new T[arr._n];
 		}
-		~Array() { delete array[]; }
+
+		Array operator=(const Array &arr)
+		{
+			for (unsigned int i = 0; i < _n; i++)
+				this->array[i] = arr.array[i];
+			return (*this);
+		}
+
+		~Array() { delete array; }
 
 		unsigned int	size(void) const
 		{
-			for (unsigned int i = 0; this->array[i]; i++)
-				;
-			return (i);
+			return (_n);
+		}
+
+		class ArraySize : public std::exception
+		{
+			virtual const char* what() const
+			throw() 
+			{
+            	return ("Size does not match the index inserted");
+        	}
+		};
+		int &operator[](unsigned int index)
+		{
+			if (index < _n && index >= 0)
+				return (this->array[index]);
+			else
+			{
+				throw ArraySize();
+			}
 		}
 };
 
