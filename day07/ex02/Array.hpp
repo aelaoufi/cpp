@@ -31,7 +31,11 @@ class Array
 			return (*this);
 		}
 
-		~Array() { delete array; }
+		~Array()
+		{ 
+			if (array)
+				delete [] array;
+		}
 
 		unsigned int	size(void) const
 		{
