@@ -4,9 +4,14 @@
 #include <algorithm>
 
 template <typename T>
-T	easyfind(T *findIn, int toFind)
+int	easyfind(T findIn, int toFind)
 {
-	for (int i = 0; )
+	for (unsigned long i = 0; i < findIn.size(); i++)
+	{
+		if (findIn[i] == toFind)
+			return (i);
+	}
+	return (-1);
 }
 
 #endif
