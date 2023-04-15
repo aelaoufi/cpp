@@ -4,7 +4,7 @@ SRS = main.cpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98 -o
 
-CC = g++
+CC = c++
 
 ALL : $(NAME)
 

@@ -1,10 +1,10 @@
 NAME = span
 
-SRS = main.cpp
+SRS = main.cpp Span.cpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98 -o
 
-CC = g++
+CC = c++
 
 ALL : $(NAME)
 
