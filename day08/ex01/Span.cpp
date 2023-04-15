@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 22:37:50 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/15 22:25:22 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/15 23:52:04 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,17 @@ unsigned int	Span::shortestSpan(void)
 	if (this->vect.size() > 1)
 	{
 		std::vector<int> tmpV;
+		
 		for (unsigned int i = 0; i < this->N; i++)
 			tmpV.push_back(this->vect[i]);
 		std::sort(tmpV.begin(), tmpV.end());
-		unsigned int shortSpan = tmpV[1] - tmpV[0];
-		return (shortSpan);
+		int shortSpan = tmpV[1] - tmpV[0];
+		for (unsigned int i = 1; i < this->N; i++)
+		{
+			if (tmpV[i + 1] - tmpV[i] < shortSpan)
+				shortSpan = tmpV[i + 1] - tmpV[i];
+		}
+		return ((unsigned int)shortSpan);
 	}
 	else
 		throw NoSpan();
