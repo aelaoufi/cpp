@@ -2,12 +2,14 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <exception>
 #include <algorithm>
+#include <vector>
 
 class Span
 {
 	private :
-		int				*integers;
+		std::vector<int> vect;
 		unsigned int	N;
 
 	public :
@@ -16,9 +18,23 @@ class Span
 		Span(const Span &spn);
 		Span &operator=(const Span &spn);
 
-		void			addNumber(int Value);
+
+		void			addNumber(int value);
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
+
+
+		class MaximumSizeReached : public std::exception
+		{
+			public :
+				virtual const char* what() const throw();
+		};
+		class NoSpan : public std::exception
+		{
+			public :
+				virtual const char* what() const throw();
+		};
+
 
 		~Span();
 };
