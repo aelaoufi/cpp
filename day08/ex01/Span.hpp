@@ -22,6 +22,7 @@ class Span
 		void			addNumber(int value);
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
+		void			addBcpNumbers(unsigned int howMany);
 
 
 		class MaximumSizeReached : public std::exception
