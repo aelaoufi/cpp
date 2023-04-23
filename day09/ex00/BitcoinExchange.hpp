@@ -12,6 +12,7 @@
 
 typedef struct s_vars
 {
+	int							i;
 	std::vector<std::string>	date;
 	std::vector<float>			value;
 	std::vector<int>			code;
