@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/04/24 15:23:22 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:40:54 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,14 @@ void	date_number_check(t_vars &vars)
 void	compare_data(t_vars &vars)
 {
 	int i = 0;
-	while (vars.date[i].compare(vars.data.substr(0, 10)) != 0)
+	if (vars.date[i].substr(0, 4).compare(vars.data.substr(0, 4)) == 0)
 	{
 		//compare year then month then day maybe ??
+		if (vars.date[i].substr(5, 2).compare(vars.data.substr(5, 2)) == 0)
+		{
+			int line_day = stoi(vars.date[i].substr(8, 2));
+			int data_day = stoi(vars.data.substr(8, 2));
+		}
 	}
 }
 
