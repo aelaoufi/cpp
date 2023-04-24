@@ -9,10 +9,13 @@
 #define BAD_INPUT -1
 #define NEGATIVE -2
 #define TOOLARGE -3
+#define BAD_FORMAT -4
+#define GOOD 1
 
 typedef struct s_vars
 {
 	int							i;
+	int							first_line;
 	std::vector<std::string>	date;
 	std::vector<float>			value;
 	std::vector<int>			code;
