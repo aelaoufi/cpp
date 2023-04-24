@@ -20,6 +20,7 @@ typedef struct s_vars
 	std::vector<float>			value;
 	std::vector<int>			code;
 	std::string					line;
+	std::string					data;
 }				t_vars;
 
 void	InFile_parsing(char *filename);

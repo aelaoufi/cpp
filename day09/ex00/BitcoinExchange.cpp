@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/04/24 14:52:49 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:23:22 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,25 @@ void	date_number_check(t_vars &vars)
 	vars.i++;
 }
 
+void	compare_data(t_vars &vars)
+{
+	int i = 0;
+	while (vars.date[i].compare(vars.data.substr(0, 10)) != 0)
+	{
+		//compare year then month then day maybe ??
+	}
+}
+
 void	InFile_parsing(char *filename)
 {
 	t_vars			vars;
 	std::ifstream	infile(filename);
+	std::ifstream	data("data.csv");
 	
 	vars.i = 0;
 	vars.first_line = 0;
 	while (std::getline(infile, vars.line))
 		date_number_check(vars);
-	
+	while (std::getline(data, vars.data))
+		compare_data(vars);
 }

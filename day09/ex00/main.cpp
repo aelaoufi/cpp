@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 14:46:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/24 14:33:36 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:22:16 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 
 int main()
 {
-	std::string str = "2011-01-03 | 33543";
-	int year = stoi(str.substr(5, 2));
-	std::cout << year << "\n";
+	std::string str = "2011-01-03";
+	std::string str2 = "2011-01-10,0.3";
+	int i = str.compare(str2.substr(0, 10));
+	std::cout << i << "\n";
 }
