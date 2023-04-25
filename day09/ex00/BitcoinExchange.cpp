@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/04/25 19:04:29 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:33:39 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,26 @@ int	date_number_check(t_vars &vars)
 		vars.first_line = 1;
 		return (0);
 	}
-	int i = vars.line.find_first_of('|');
-	std::string date = vars.line.substr(0, 10);
-	std::string value = vars.line.substr(13, vars.line.length() - 13);
-	if (i == 11)
+	if (vars.line.length() >= 10)
 	{
+		std::string date = vars.line.substr(0, 10);
 		int year = stoi(date.substr(0, 4));
 		int month = stoi(date.substr(5, 2));
 		int day = stoi(date.substr(8, 2));
 		if (isValidDate(day, month, year) == 0)
+		{
 			std::cout << "Error: bad input => " << date << "\n";
-		else if (stof(value) <= 0)
+			return (0);
+		}
+		std::string value = vars.line.substr(13, vars.line.length() - 13);
+		if (stof(value) <= 0)
 			std::cout << "Error: not a positive number.\n";
 		else if (stof(value) >= 1000)
 			std::cout << "Error: too large a number.\n";
 		else
 		{
 			std::map<std::string, float>::iterator lowBound = vars.mapp.lower_bound(date);
-			std::cout << date << " => " << value << " = " << stof(value) * lowBound->second;
+			std::cout << date << " => " << value << " = " << stof(value) * lowBound->second << "\n";
 		}
 	}
 	else
@@ -75,8 +77,8 @@ void	data_parse(t_vars &vars)
 {
 	if (vars.data.compare("date,exchange_rate") == 0)
 		return ;
-	std::string date = vars.line.substr(0, 10);
-	float 		exchange_rate = stof(vars.line.substr(11, vars.line.length() - 11));
+	std::string date = vars.data.substr(0, 10);
+	float 		exchange_rate = stof(vars.data.substr(11, vars.data.length() - 11));
 	vars.mapp.insert(std::make_pair(date, exchange_rate));
 }
 
@@ -91,8 +93,5 @@ void	opening_files(char *filename)
 	while (std::getline(data, vars.data))
 		data_parse(vars);
 	while (std::getline(infile, vars.line))
-	{
-		if (date_number_check(vars) == -1)
-			return ;
-	}
+		date_number_check(vars);
 }
