@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/04/24 16:40:54 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:04:29 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,59 +36,63 @@ bool isValidDate(int d, int m, int y)
 		return (d <= 30);
 	return 1;
 }
-void	date_number_check(t_vars &vars)
+int	date_number_check(t_vars &vars)
 {
 	if (vars.line.compare("date | value") == 0 && vars.first_line == 0)
 	{
 		vars.first_line = 1;
-		return ;
+		return (0);
 	}
 	int i = vars.line.find_first_of('|');
-	vars.date[vars.i] = vars.line.substr(0, 10);
-	vars.value[vars.i] = stof(vars.line.substr(13, vars.line.length() - 13));
+	std::string date = vars.line.substr(0, 10);
+	std::string value = vars.line.substr(13, vars.line.length() - 13);
 	if (i == 11)
 	{
-		int year = stoi(vars.date[vars.i].substr(0, 4));
-		int month = stoi(vars.date[vars.i].substr(5, 2));
-		int day = stoi(vars.date[vars.i].substr(8, 2));
+		int year = stoi(date.substr(0, 4));
+		int month = stoi(date.substr(5, 2));
+		int day = stoi(date.substr(8, 2));
 		if (isValidDate(day, month, year) == 0)
-			vars.code[vars.i] == BAD_INPUT;
-		else if (vars.value[vars.i] <= 0)
-			vars.code[vars.i] == NEGATIVE;
-		else if (vars.value[vars.i] >= 1000)
-			vars.code[vars.i] == TOOLARGE;
+			std::cout << "Error: bad input => " << date << "\n";
+		else if (stof(value) <= 0)
+			std::cout << "Error: not a positive number.\n";
+		else if (stof(value) >= 1000)
+			std::cout << "Error: too large a number.\n";
 		else
-			vars.code[vars.i] == GOOD;
-	}
-	else
-		vars.code[vars.i] == BAD_FORMAT;
-	vars.i++;
-}
-
-void	compare_data(t_vars &vars)
-{
-	int i = 0;
-	if (vars.date[i].substr(0, 4).compare(vars.data.substr(0, 4)) == 0)
-	{
-		//compare year then month then day maybe ??
-		if (vars.date[i].substr(5, 2).compare(vars.data.substr(5, 2)) == 0)
 		{
-			int line_day = stoi(vars.date[i].substr(8, 2));
-			int data_day = stoi(vars.data.substr(8, 2));
+			std::map<std::string, float>::iterator lowBound = vars.mapp.lower_bound(date);
+			std::cout << date << " => " << value << " = " << stof(value) * lowBound->second;
 		}
 	}
+	else
+	{
+		std::cout << "Error: bad file format" << "\n";
+		return (-1);
+	}
+	return (0);
 }
 
-void	InFile_parsing(char *filename)
+void	data_parse(t_vars &vars)
+{
+	if (vars.data.compare("date,exchange_rate") == 0)
+		return ;
+	std::string date = vars.line.substr(0, 10);
+	float 		exchange_rate = stof(vars.line.substr(11, vars.line.length() - 11));
+	vars.mapp.insert(std::make_pair(date, exchange_rate));
+}
+
+void	opening_files(char *filename)
 {
 	t_vars			vars;
 	std::ifstream	infile(filename);
 	std::ifstream	data("data.csv");
-	
-	vars.i = 0;
+
 	vars.first_line = 0;
-	while (std::getline(infile, vars.line))
-		date_number_check(vars);
+	vars.first_line2 = 0;
 	while (std::getline(data, vars.data))
-		compare_data(vars);
+		data_parse(vars);
+	while (std::getline(infile, vars.line))
+	{
+		if (date_number_check(vars) == -1)
+			return ;
+	}
 }

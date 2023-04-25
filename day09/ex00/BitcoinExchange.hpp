@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <map>
 #define BAD_INPUT -1
 #define NEGATIVE -2
 #define TOOLARGE -3
@@ -14,16 +15,14 @@
 
 typedef struct s_vars
 {
-	int							i;
+	std::map<std::string, float> mapp;
 	int							first_line;
-	std::vector<std::string>	date;
-	std::vector<float>			value;
-	std::vector<int>			code;
+	int							first_line2;
 	std::string					line;
 	std::string					data;
 }				t_vars;
 
-void	InFile_parsing(char *filename);
+void	opening_files(char *filename);
 
 
 // class BitcoinExchange
@@ -38,7 +37,6 @@ void	InFile_parsing(char *filename);
 // 		BitcoinExchange(const BitcoinExchange &btc);
 // 		BitcoinExchange &operator=(const BitcoinExchange &btc);
 // 		~BitcoinExchange();
-
 
 // };
 #endif
