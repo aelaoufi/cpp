@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/04/25 20:33:39 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:44:34 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ int	date_number_check(t_vars &vars)
 		vars.first_line = 1;
 		return (0);
 	}
-	if (vars.line.length() >= 10)
+	int found = vars.line.find('-');
+	int found2 = vars.line.find('-', found + 1);
+	if (vars.line.length() >= 10 && found == 4 && found2 == 7)
 	{
 		std::string date = vars.line.substr(0, 10);
 		int year = stoi(date.substr(0, 4));
@@ -51,14 +53,14 @@ int	date_number_check(t_vars &vars)
 		int day = stoi(date.substr(8, 2));
 		if (isValidDate(day, month, year) == 0)
 		{
-			std::cout << "Error: bad input => " << date << "\n";
+			std::cerr << "Error: bad input => " << date << "\n";
 			return (0);
 		}
 		std::string value = vars.line.substr(13, vars.line.length() - 13);
 		if (stof(value) <= 0)
-			std::cout << "Error: not a positive number.\n";
+			std::cerr << "Error: not a positive number.\n";
 		else if (stof(value) >= 1000)
-			std::cout << "Error: too large a number.\n";
+			std::cerr << "Error: too large a number.\n";
 		else
 		{
 			std::map<std::string, float>::iterator lowBound = vars.mapp.lower_bound(date);
@@ -67,7 +69,7 @@ int	date_number_check(t_vars &vars)
 	}
 	else
 	{
-		std::cout << "Error: bad file format" << "\n";
+		std::cerr << "Error: bad line format" << "\n";
 		return (-1);
 	}
 	return (0);
@@ -89,7 +91,6 @@ void	opening_files(char *filename)
 	std::ifstream	data("data.csv");
 
 	vars.first_line = 0;
-	vars.first_line2 = 0;
 	while (std::getline(data, vars.data))
 		data_parse(vars);
 	while (std::getline(infile, vars.line))
