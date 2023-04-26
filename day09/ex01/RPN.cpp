@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:24:46 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/26 16:43:04 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:45:46 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,20 @@ int	calculate_operand(std::stack<int> &stak, char op)
 		stak.pop();
 		int n2 = stak.top();
 		stak.pop();
-		return (n1 - n2);
+		return (n2 - n1);
 	}
 	if (op == '/')
 	{
 		int n1 = stak.top();
-		stak.pop();
-		int n2 = stak.top();
-		if (n2 == 0)
+		if (n1 == 0)
 		{
 			std::cerr << "Can't devide by 0\n";
 			exit(0);
 		}
 		stak.pop();
-		return (n1 / n2);
+		int n2 = stak.top();
+		stak.pop();
+		return (n2 / n1);
 	}
 	int n1 = stak.top();
 	stak.pop();
@@ -86,7 +86,6 @@ void	do_the_math(char *line)
 		if (isoperator(line[i]))
 		{
 			int topush = calculate_operand(stak, line[i]);
-			std::cout << topush << "\n";
 			stak.push(topush);
 		}
 	}
