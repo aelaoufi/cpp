@@ -6,6 +6,6 @@
 #include <deque>
 #include <vector>
 
-
+void	check_args(char **args);
 
 #endif
