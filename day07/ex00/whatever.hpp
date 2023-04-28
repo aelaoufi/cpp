@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-template <typename T>
+
 void swap(T &var1, T &var2)
 {
 	T temp = var1;
