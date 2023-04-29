@@ -5,10 +5,14 @@
 #include <string>
 #include <deque>
 #include <vector>
-#define SPLIT_LIMIT 15
+#define SPLIT_LIMIT 10
 
 void	check_args(char **args);
-void	merge_insert(char **args, std::vector<int> &vec, std::deque<int> &deq);
+
+template <typename T>
+void	merge_insert(T &cont);
+
+
 void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
 
 #endif

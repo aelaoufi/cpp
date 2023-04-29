@@ -6,13 +6,13 @@
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:56:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/29 15:38:29 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/04/29 18:52:04 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 template <typename T>
-void	insert_sort(T container)
+void	insert_sort(T &container)
 {
 	for (int i = 0; container[i]; i++)
 	{
@@ -37,9 +37,28 @@ void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, i
 	}
 }
 
-void	merge_insert(char **args, std::vector<int> &vec, std::deque<int> &deq)
+template <typename T>
+void	merge(T &cont, T &left, T &right)
 {
-	//init_containers(args, vec, deq);
+	
+}
+
+template <typename T>
+void	merge_insert(T &cont)
+{
+	if (cont.size() < SPLIT_LIMIT)
+		insert_sort(cont);
+	else
+	{
+		int mid = cont.size() / 2;
+		T left;
+		T right;
+		left.assign(cont.begin(), mid);
+		left.assign(mid , cont.end());
+		merge_insert(left);
+		merge_insert(right);
+		
+	}
 }
 
 void	check_args(char **args)

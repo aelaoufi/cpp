@@ -6,7 +6,7 @@
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:57:06 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/29 15:38:21 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/04/29 18:49:28 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int ac, char **av)
 
 	check_args(av);
 	init_containers(av ,vec, deq, ac);
-	merge_insert(av, vec, deq);
+	merge_insert(vec);
 	// for (size_t i = 0; i < vec.size(); i++)
 	// {
 	// 	std::cout << "vec :" << vec[i] << "\t";
