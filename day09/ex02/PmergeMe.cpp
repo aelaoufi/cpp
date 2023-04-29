@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:56:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/28 21:20:23 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:38:29 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ void	insert_sort(T container)
 	}
 }
 
-void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq)
+void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac)
 {
-	for (int i = 1; args[i]; i++)
+	for (int i = 1; i < ac; i++)
 	{
-		vec[i - 1] = atoi(args[i]);
-		deq[i - 1] = atoi(args[i]);
+		vec.push_back(atoi(args[i]));
+		deq.push_back(atoi(args[i]));
 	}
 }
 
-void	sort_them(char **args, std::vector<int> &vec, std::deque<int> &deq)
+void	merge_insert(char **args, std::vector<int> &vec, std::deque<int> &deq)
 {
-	init_containers(args, vec, deq);
+	//init_containers(args, vec, deq);
 }
 
 void	check_args(char **args)
@@ -55,4 +55,5 @@ void	check_args(char **args)
 			}
 		}
 	}
+	
 }

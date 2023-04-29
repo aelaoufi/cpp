@@ -8,6 +8,7 @@
 #define SPLIT_LIMIT 15
 
 void	check_args(char **args);
-void	sort_them(char **args, std::vector<int> &vec, std::deque<int> &deq);
+void	merge_insert(char **args, std::vector<int> &vec, std::deque<int> &deq);
+void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
 
 #endif

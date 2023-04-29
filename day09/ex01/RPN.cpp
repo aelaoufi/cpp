@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:24:46 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/26 17:45:46 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/04/26 21:55:30 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	calculate_operand(std::stack<int> &stak, char op)
 
 void	do_the_math(char *line)
 {
-	//first operator with 
 	check_RPNline(line);
 	std::stack<int> stak;
 	for (int i = 0; line[i]; i++)
