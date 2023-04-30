@@ -52,7 +52,7 @@ void	merge(T &cont, T &left, T &right)
 	}
 	while (j < right.size())
 	{
-		cont[k] = left[j];
+		cont[k] = right[j];
 		j++;
 		k++;
 	}
@@ -84,5 +84,5 @@ void	merge_insert(T &cont)
 
 void	check_args(char **args);
 void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
-
+void	check_duplicate(std::vector<int> vec);
 #endif
