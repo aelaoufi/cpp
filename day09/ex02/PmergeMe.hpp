@@ -6,14 +6,83 @@
 #include <deque>
 #include <vector>
 #include <algorithm>
+
 #define SPLIT_LIMIT 10
 
-void	check_args(char **args);
+template <typename T>
+void	insert_sort(T &container)
+{
+	for (int i = 0; container[i]; i++)
+	{
+		for (int j = i + 1; container[j]; j++)
+		{
+			if (container[i] > container[j])
+			{
+				int temp = container[i];
+				container[i] = container[j];
+				container[j] = temp;
+			}
+		}
+	}
+}
 
 template <typename T>
-void	merge_insert(T &cont);
+void	merge(T &cont, T &left, T &right)
+{
+	size_t i = 0, j = 0, k = 0; 
+	while (i < left.size() && j < right.size())
+	{
+		if (left[i] < right[j])
+		{
+			cont[k] = left[i];
+			i++;
+		}
+		else
+		{
+			cont[k] = right[j];
+			j++;
+		}
+		k++;
+	}
+	while (i < left.size())
+	{
+		cont[k] = left[i];
+		i++;
+		k++;
+	}
+	while (j < right.size())
+	{
+		cont[k] = left[j];
+		j++;
+		k++;
+	}
+}
 
+template <typename T>
+void	merge_insert(T &cont)
+{
+	if (cont.size() < SPLIT_LIMIT)
+		insert_sort(cont);
+	else
+	{
+		size_t mid = cont.size() / 2;
+		T left;
+		T right;
+		for (size_t i = 0; i < mid; i++)
+		{
+			left.push_back(cont[i]);
+		}
+		for (size_t i = mid + 1; i < cont.size(); i++)
+		{
+			right.push_back(cont[i]);
+		}
+		merge_insert(left);
+		merge_insert(right);
+		merge(cont, left, right);
+	}
+}
 
+void	check_args(char **args);
 void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
 
 #endif
