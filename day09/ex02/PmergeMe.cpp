@@ -6,7 +6,7 @@
 /*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:56:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/29 18:52:04 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/04/30 14:07:56 by anass_elaou      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,33 @@ void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, i
 template <typename T>
 void	merge(T &cont, T &left, T &right)
 {
-	
+	int i, j, k = 0; 
+	while (i < left.size() && j < right.size())
+	{
+		if (left[i] < right[j])
+		{
+			cont[k] = left[i];
+			i++;
+		}
+		else
+		{
+			cont[k] = right[j];
+			j++;
+		}
+		k++;
+	}
+	while (i < left.size())
+	{
+		cont[k] = left[i];
+		i++;
+		k++;
+	}
+	while (j < right.size())
+	{
+		cont[k] = left[j];
+		j++;
+		k++;
+	}
 }
 
 template <typename T>
@@ -57,7 +83,7 @@ void	merge_insert(T &cont)
 		left.assign(mid , cont.end());
 		merge_insert(left);
 		merge_insert(right);
-		
+		merge(cont, left, right);
 	}
 }
 
@@ -74,5 +100,4 @@ void	check_args(char **args)
 			}
 		}
 	}
-	
 }

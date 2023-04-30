@@ -5,6 +5,7 @@
 #include <string>
 #include <deque>
 #include <vector>
+#include <algorithm>
 #define SPLIT_LIMIT 10
 
 void	check_args(char **args);
