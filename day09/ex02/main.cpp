@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:57:06 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/30 15:54:14 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/05/01 15:17:04 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,7 @@ int main(int ac, char **av)
 	init_containers(av ,vec, deq, ac);
 	check_duplicate(vec);
 	merge_insert(vec);
-//	merge_insert(deq);
-	for (size_t i = 0; i < vec.size(); i++)
-	{
-		std::cout << "vec :" << vec[i] << "\t";
-		//std::cout << "deq :" << deq[i] << "\n";
-	}
+	merge_insert(deq);
+	
 	return (0);
 }

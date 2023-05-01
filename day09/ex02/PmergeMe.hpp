@@ -12,9 +12,9 @@
 template <typename T>
 void	insert_sort(T &container)
 {
-	for (int i = 0; container[i]; i++)
+	for (size_t i = 0; i < container.size() - 1; i++)
 	{
-		for (int j = i + 1; container[j]; j++)
+		for (size_t j = i + 1; j < container.size(); j++)
 		{
 			if (container[i] > container[j])
 			{
@@ -29,7 +29,7 @@ void	insert_sort(T &container)
 template <typename T>
 void	merge(T &cont, T &left, T &right)
 {
-	size_t i = 0, j = 0, k = 0; 
+	size_t i = 0, j = 0, k = 0;
 	while (i < left.size() && j < right.size())
 	{
 		if (left[i] < right[j])
@@ -69,13 +69,9 @@ void	merge_insert(T &cont)
 		T left;
 		T right;
 		for (size_t i = 0; i < mid; i++)
-		{
 			left.push_back(cont[i]);
-		}
-		for (size_t i = mid + 1; i < cont.size(); i++)
-		{
+		for (size_t i = mid; i < cont.size(); i++)
 			right.push_back(cont[i]);
-		}
 		merge_insert(left);
 		merge_insert(right);
 		merge(cont, left, right);
