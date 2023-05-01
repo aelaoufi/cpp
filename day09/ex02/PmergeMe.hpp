@@ -1,11 +1,12 @@
 #ifndef PmergeMe_HPP
 #define PmergeMe_HPP
 
-#include <iostream>
-#include <string>
-#include <deque>
-#include <vector>
-#include <algorithm>
+# include <iostream>
+# include <string>
+# include <deque>
+# include <vector>
+# include <algorithm>
+# include <sys/time.h>
 
 #define SPLIT_LIMIT 10
 
@@ -78,7 +79,8 @@ void	merge_insert(T &cont)
 	}
 }
 
-void	check_args(char **args);
-void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
-void	check_duplicate(std::vector<int> vec);
+float	gettime_ms(void);
+void		check_args(char **args);
+void		init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
+void		check_duplicate(std::vector<int> vec);
 #endif
