@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/04/26 14:44:34 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/05/02 13:36:15 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ bool isLeap(int year)
 
 bool isValidDate(int d, int m, int y)
 {
+	if (y == 2022 && (m > 3 || d > 29))
+		return 0;
 	if (y > 2022 || y < 2009)
 		return 0;
 	if (m < 1 || m > 12)
@@ -36,6 +38,12 @@ bool isValidDate(int d, int m, int y)
 		return (d <= 30);
 	return 1;
 }
+
+void	check_each_line(t_vars vars)
+{
+	//check_if input is valid
+}
+
 int	date_number_check(t_vars &vars)
 {
 	if (vars.line.compare("date | value") == 0 && vars.first_line == 0)

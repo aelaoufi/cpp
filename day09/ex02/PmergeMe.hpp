@@ -7,6 +7,8 @@
 # include <vector>
 # include <algorithm>
 # include <sys/time.h>
+# include <ctime>
+# include <time.h>
 
 #define SPLIT_LIMIT 10
 
@@ -79,7 +81,7 @@ void	merge_insert(T &cont)
 	}
 }
 
-float	gettime_ms(void);
+double 		gettime_us(void);
 void		check_args(char **args);
 void		init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
 void		check_duplicate(std::vector<int> vec);
