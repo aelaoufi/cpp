@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/05/02 13:36:15 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/05/02 15:41:39 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,28 @@ bool isValidDate(int d, int m, int y)
 	return 1;
 }
 
-void	check_each_line(t_vars vars)
+int	check_date(std::string date)
 {
-	//check_if input is valid
+	for (size_t j = 0; j < date.size(); j++)
+	{
+		if (j == 4 || j == 7)
+			j++;
+		if (!isdigit(date[j]))
+			return (-1);
+	}
+	return (1);
+}
+
+int	check_value(std::string value)
+{
+	if (!value.size())
+		return (-1);
+	for (size_t j = 0; j < value.size(); j++)
+	{
+		if (!isdigit(value[j]))
+			return (-1);
+	}
+	return (1);
 }
 
 int	date_number_check(t_vars &vars)
@@ -56,6 +75,11 @@ int	date_number_check(t_vars &vars)
 	if (vars.line.length() >= 10 && found == 4 && found2 == 7)
 	{
 		std::string date = vars.line.substr(0, 10);
+		if (check_date(date) == -1)
+		{
+			std::cerr << "Error: bad line format" << "\n";
+			return (-1);
+		}
 		int year = stoi(date.substr(0, 4));
 		int month = stoi(date.substr(5, 2));
 		int day = stoi(date.substr(8, 2));
@@ -65,6 +89,11 @@ int	date_number_check(t_vars &vars)
 			return (0);
 		}
 		std::string value = vars.line.substr(13, vars.line.length() - 13);
+		if (check_value(value) == -1)
+		{
+			std::cerr << "Error: bad line format" << "\n";
+			return (-1);
+		}
 		if (stof(value) <= 0)
 			std::cerr << "Error: not a positive number.\n";
 		else if (stof(value) >= 1000)
