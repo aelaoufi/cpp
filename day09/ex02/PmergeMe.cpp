@@ -6,18 +6,18 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:56:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/05/02 15:18:03 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:08:03 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-double	gettime_us(void)
+double	gettime_ms(void)
 {
 	struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
-	return ((tv.tv_sec * 1000000) + (tv.tv_usec));
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
 void	init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac)

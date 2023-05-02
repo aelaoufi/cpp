@@ -81,7 +81,7 @@ void	merge_insert(T &cont)
 	}
 }
 
-double 		gettime_us(void);
+double 		gettime_ms(void);
 void		check_args(char **args);
 void		init_containers(char **args, std::vector<int> &vec, std::deque<int> &deq, int ac);
 void		check_duplicate(std::vector<int> vec);
