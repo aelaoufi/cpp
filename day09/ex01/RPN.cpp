@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anass_elaoufi <anass_elaoufi@student.42    +#+  +:+       +#+        */
+/*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:24:46 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/04/26 21:55:30 by anass_elaou      ###   ########.fr       */
+/*   Updated: 2023/05/03 16:23:04 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,40 +35,24 @@ void	check_RPNline(char *line)
 }
 
 int	calculate_operand(std::stack<int> &stak, char op)
-{
-	if (op == '+')
-	{
-		int n1 = stak.top();
-		stak.pop();
-		int n2 = stak.top();
-		stak.pop();
-		return (n1 + n2);
-	}
-	if (op == '-')
-	{
-		int n1 = stak.top();
-		stak.pop();
-		int n2 = stak.top();
-		stak.pop();
-		return (n2 - n1);
-	}
-	if (op == '/')
-	{
-		int n1 = stak.top();
-		if (n1 == 0)
-		{
-			std::cerr << "Can't devide by 0\n";
-			exit(0);
-		}
-		stak.pop();
-		int n2 = stak.top();
-		stak.pop();
-		return (n2 / n1);
-	}
+{		
 	int n1 = stak.top();
 	stak.pop();
 	int n2 = stak.top();
 	stak.pop();
+	if (op == '+')
+		return (n1 + n2);
+	if (op == '-')
+		return (n2 - n1);
+	if (op == '/')
+	{
+		if (n1 == 0)
+		{
+			std::cerr << "Can't divide by 0\n";
+			exit(0);
+		}
+		return (n2 / n1);
+	}
 	return (n1 * n2);
 }
 
@@ -82,11 +66,12 @@ void	do_the_math(char *line)
 			i++;
 		if (isdigit(line[i]))
 			stak.push(line[i] - 48);
-		if (isoperator(line[i]))
+		if (isoperator(line[i]) && stak.size() > 1)
 		{
 			int topush = calculate_operand(stak, line[i]);
 			stak.push(topush);
 		}
 	}
-	std::cout << stak.top() << "\n";
+	if (!stak.empty())
+		std::cout << stak.top() << "\n";
 }

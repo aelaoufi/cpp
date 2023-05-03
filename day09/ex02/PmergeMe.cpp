@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 17:56:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2023/05/02 20:08:03 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:33:33 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_args(char **args)
 	{
 		for (int j = 0; args[i][j]; j++)
 		{
-			if (!isdigit(args[i][j]) && args[i][j] != '+')
+			if ((!isdigit(args[i][j]) && args[i][j] != '+') || (args[i][j] == '+' && !isdigit(args[i][j + 1])))
 			{
 				std::cerr << "Error : enter positive integers only.\n";
 				exit(0);
@@ -60,4 +60,11 @@ void	check_duplicate(std::vector<int> vec)
 			exit(0);
 		}
 	}
+}
+
+void	print_values(std::vector<int> vec)
+{
+	for (size_t i = 0; i < vec.size(); i++)
+		std::cout << vec[i] << " ";
+	std::cout << "\n";
 }

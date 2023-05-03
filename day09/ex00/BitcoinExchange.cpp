@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/05/02 15:41:39 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/05/03 14:45:53 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,10 @@ int	date_number_check(t_vars &vars)
 			std::cerr << "Error: too large a number.\n";
 		else
 		{
-			std::map<std::string, float>::iterator lowBound = vars.mapp.lower_bound(date);
-			std::cout << date << " => " << value << " = " << stof(value) * lowBound->second << "\n";
+			std::map<std::string, float>::iterator upBound = vars.mapp.upper_bound(date);
+			if (upBound != vars.mapp.begin())
+				upBound--;
+			std::cout << date << " => " << value << " = " << stof(value) * upBound->second << "\n";
 		}
 	}
 	else
