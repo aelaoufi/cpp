@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:53:49 by anass_elaou       #+#    #+#             */
-/*   Updated: 2023/05/03 14:45:53 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:42:49 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,24 @@ int	check_date(std::string date)
 	return (1);
 }
 
+int how_many_occur(std::string str, char c)
+{
+	int count = 0;
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		if (str[i] == c)
+			count++;
+	}
+	return (count);
+}
+
 int	check_value(std::string value)
 {
-	if (!value.size())
+	if (!value.size() || value[value.size()] == '.' || value[0] == '.' || how_many_occur(value, '.') > 1)
 		return (-1);
 	for (size_t j = 0; j < value.size(); j++)
 	{
-		if (!isdigit(value[j]))
+		if (!isdigit(value[j]) && value[j] != '.')
 			return (-1);
 	}
 	return (1);
@@ -116,8 +127,17 @@ int	date_number_check(t_vars &vars)
 
 void	data_parse(t_vars &vars)
 {
+	int found = vars.data.find('-');
+	int found2 = vars.data.find('-', found + 1);
+	int found3 = vars.data.find(',', found2 + 1);
 	if (vars.data.compare("date,exchange_rate") == 0)
 		return ;
+	if (found != 4 || found2 != 7 || found3 != 10 || vars.data.size() < 12
+			|| !isdigit(vars.data.at(11)) || how_many_occur(vars.data, '.') > 1 || how_many_occur(vars.data, ',') > 1)
+	{
+		std::cerr << "data.csv file corrupted.\n";
+		exit(0);
+	}
 	std::string date = vars.data.substr(0, 10);
 	float 		exchange_rate = stof(vars.data.substr(11, vars.data.length() - 11));
 	vars.mapp.insert(std::make_pair(date, exchange_rate));

@@ -9,7 +9,7 @@ CC = c++
 ALL : $(NAME)
 
 $(NAME) : $(SRS)
-	$(CC) $(FLAGS) $(NAME) $(SRS) -fsanitize=address -g
+	$(CC) $(FLAGS) $(NAME) $(SRS)
 
 clean :
 	rm -rf $(NAME)
